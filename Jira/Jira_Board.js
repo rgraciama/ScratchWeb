@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         JIRA Board
+// @name         Jira Board
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
@@ -25,7 +25,7 @@
     function doc_keyUp(e) {
         if (e.altKey && e.keyCode == 87) {
             let boardName = jQuery('#ghx-board-name');
-            if (("PAMPOL-CI").equals(boardName)) {
+            if ("PAMPOL-CI" === boardName) {
                countCIbyGroup();
             } else {
                remainingSP();
