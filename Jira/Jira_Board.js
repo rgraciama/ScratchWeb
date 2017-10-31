@@ -38,7 +38,7 @@
         if (e.altKey && e.keyCode == 90) {
             jQuery('.ghx-swimlane').addClass("ghx-closed");
         }
-		
+
         if (e.altKey && e.keyCode == 88) {
             jQuery('.ghx-swimlane').removeClass("ghx-closed");
         }
@@ -46,12 +46,12 @@
     function countCIbyGroup () {
         jQuery("[data-column-id='231'] .ghx-extra-field-row:last-child .ghx-extra-field").each(function() {
             let typeCIName = jQuery(this).textContent;
-            let arr = new Array(); 
-            
+            let arr = new Array();
+
         });
-        
+
     }
-    
+
      function countStatusUS() {
        jQuery('#ghx-board-name .results-us').empty();
        jQuery('.results-usSP').html("");
@@ -78,18 +78,19 @@
       numReviewPO = 0;
       numLength = jQuery('.ghx-swimlane .ghx-info').length;
       numReviewPO = jQuery('.ghx-swimlane .ghx-bandaid').length;
-        
+
       jQuery('.ghx-swimlane .ghx-info').each(function() {
-        if(jQuery(this).children('span:first-child').text() === "Done") {
+        let sStatusUs = jQuery(this).children('span:first-child').text();
+        if((sStatusUs === "Done") || (sStatusUs === "Closed")) {
             jQuery(this).parent().parent().parent().css('background-color', 'lightgreen');
             numDone++;
-        } else if (jQuery(this).children('span:first-child').text() === "In Review") {
+        } else if (sStatusUs === "In Review") {
             jQuery(this).parent().parent().parent().css('background-color', 'lightcoral');
             numInReview++;
-        } else if (jQuery(this).children('span:first-child').text() === "In Progress") {
+        } else if (sStatusUs === "In Progress") {
             jQuery(this).parent().parent().parent().css('background-color', 'lightyellow');
             numInProgress++;
-        }  else if (jQuery(this).children('span:first-child').text() === "To Do") {
+        }  else if (sStatusUs === "To Do") {
             jQuery(this).parent().parent().parent().css('background-color', 'lightblue');
             numToDo++;
         }
@@ -97,7 +98,7 @@
 
     }
 
-    
+
 
     function remainingSP() {
       numSPRemaining = 0;
