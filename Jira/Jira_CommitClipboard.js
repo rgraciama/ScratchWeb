@@ -1,19 +1,17 @@
 // ==UserScript==
 // @name         Jira Commit message clipboard copy
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @match        http://svn.idiada.ct:1080/jira/secure/RapidBoard.jspa?rapidView=*
 // @grant        none
 // ==/UserScript==
 
-//Thanks to jmtalarn guru software developer.
-
 (function() {
     'use strict';
 
-    function commitTemplate() {
+    function commitTemplate(isBoardUS) {
         // Your code here...
         let jiraBaseURL = "http://svn.idiada.ct:1080";
         let storyKey = jQuery('div.ghx-selected').parents('.ghx-swimlane').find('.ghx-parent-key').text();
@@ -27,8 +25,14 @@
         let taskDescription = jQuery('dd[title="Description"]').text();
         let team = jQuery('h2#ghx-board-name').text().replace("PAMPOL-", "").replace("_", "");
         let milestoneName = jQuery('.ghx-name').text().substring(jQuery('.ghx-name').text().indexOf('.') + 2, jQuery('.ghx-name').text().indexOf('|') - 1);
+        let commitMessage = "";
 
-        let commitMessage = taskStatus + "\t - " + milestoneName + "\t" + team + "\t" + storyKey + "\t" + storyDescription + "\n" + taskKey + "\t" + taskTitle + "\n" + taskUrl + "\n\n" + taskDescription + "\n";
+        if (isBoardUS) {
+            commitMessage = taskStatus + "\t - " + milestoneName + "\t" + team + "\t" + storyKey + "\t" + storyDescription + "\n" + taskKey + "\t" + taskTitle + "\n" + taskUrl + "\n\n" + taskDescription + "\n";
+        } else {
+            commitMessage = taskKey + "\t" + taskTitle + "\n" + taskUrl + "\n\n" + taskDescription + "\n";
+        }
+        
         //alert(commitMessage);
         copyToClipboard(commitMessage);
     }
@@ -37,7 +41,9 @@
         // Q key
         if (e.ctrlKey && e.keyCode == 81) {
             if (window.location.href.indexOf("&view=detail&selectedIssue=")!=-1) {
-                commitTemplate();
+                let sBoard = jQuery('h2#ghx-board-name').text();
+                let isBoardUS = !(sBoard === "PAMPOL-SPEC OPS" || sBoard === "PAMPOL-CI");
+                commitTemplate(isBoardUS);
             }
         }
     }
