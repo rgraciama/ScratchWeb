@@ -28,9 +28,9 @@
         let commitMessage = "";
 
         if (isBoardUS) {
-            commitMessage = taskStatus + "\t - " + milestoneName + "\t" + team + "\t" + storyKey + "\t" + storyDescription + "\n" + taskKey + "\t" + taskTitle + "\n" + taskUrl + "\n\n" + taskDescription + "\n";
+            commitMessage = taskStatus + "\t - " + milestoneName + "\t" + team + "\t" + storyKey + "\t" + storyDescription + "\n" + taskKey + " \t" + taskTitle + "\n" + taskUrl + "\n\n" + taskDescription + "\n";
         } else {
-            commitMessage = taskKey + "\t" + taskTitle + "\n" + taskUrl + "\n\n" + taskDescription + "\n";
+            commitMessage = taskStatus + "\t - " + team + " \t " + taskKey + " \t" + taskTitle + "\n" + taskUrl + "\n\n" + taskDescription + "\n";
         }
         
         //alert(commitMessage);
