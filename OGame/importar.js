@@ -5,5 +5,5 @@ function importarScript(nombre, callback) {
     document.querySelector("head").appendChild(s);
 }
 
-importarScript("http://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/master/OGame/buildStructure.js");
-importarScript("http://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/master/OGame/mainBot.js");
+importarScript("http://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/buildStructure.js");
+importarScript("http://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/mainBot.js");
