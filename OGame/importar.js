@@ -4,6 +4,6 @@ function importarScript(nombre, callback) {
     s.src = nombre;
     document.querySelector("head").appendChild(s);
 }
-
+importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/waitForKeyElements.js");
 importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/buildStructure.js");
 importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/mainBot.js");
