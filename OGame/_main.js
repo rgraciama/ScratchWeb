@@ -4,8 +4,10 @@ setTimeout(function() {
     location.reload();
 },randNum);
 
+// window.location.href
+
 function buildStructure() {
-    if ($('#resources_energy').text() > 0) {
+    if (resources.energy > 0) {
         //buildStructureByName('energía');
         buildFirstStructure();
         //buildAnyStructureExceptOneByName('energía');
