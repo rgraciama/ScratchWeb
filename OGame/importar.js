@@ -4,7 +4,14 @@ function importarScript(nombre, callback) {
     s.src = nombre;
     document.querySelector("head").appendChild(s);
 }
+/* Entities & Functions */
+importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/entities/Target.js");
+
+/* Libraries */
 importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/libs/waitForKeyElements.js");
+
+/* utils */
 importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/util/buildStructure.js");
 importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/util/dashboard.js");
+
 importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/_main.js");
