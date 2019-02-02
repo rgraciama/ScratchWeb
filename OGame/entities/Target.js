@@ -13,7 +13,7 @@ class Target {
         return `${this.planet} ${this.what} ${this.which}`;
     }
 
-    doTarget(this) {
+    doTarget() {
         //Go to planet
         switchPlanetToNumber(this.planet);
     };
