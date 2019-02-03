@@ -4,14 +4,16 @@ function importarScript(nombre, callback) {
     s.src = nombre;
     document.querySelector("head").appendChild(s);
 }
+
+var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@latest/OGame/"
 /* Entities & Functions */
-importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@latest/OGame/entities/Target.js");
+importarScript(headUrl & "entities/Target.js");
 
 /* Libraries */
-importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@latest/OGame/libs/waitForKeyElements.js");
+importarScript(headUrl & "libs/waitForKeyElements.js");
 
 /* utils */
-importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@latest/OGame/util/buildStructure.js");
-importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@latest/OGame/util/dashboard.js");
+importarScript(headUrl & "util/buildStructure.js");
+importarScript(headUrl & "util/dashboard.js");
 
-importarScript("https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@latest/OGame/_main.js");
+importarScript(headUrl & "_main.js");
