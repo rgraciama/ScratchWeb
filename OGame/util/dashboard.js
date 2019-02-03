@@ -6,17 +6,17 @@ resources.energy = $('#resources_energy').text();
 
 var pages = ["resources", "station", "tradeOverview", "station", "research", "shipyard", "defense", "fleet", "galaxy", "alliance"];
 
-/*var pages = new Object();
-pages.resources = "resources";
-pages.station = "station";
-pages.trader = "traderOverview";
-pages.research = "research";
-pages.shipyard = "shipyard";
-pages.defense = "defense";
-pages.fleet = "fleet";
-pages.galaxy = "galaxy";
-//pages.empire = "empire";
-pages.alliance = "alliance";*/
+var pagesNames = new Object();
+pagesNames.resources = "resources";
+pagesNames.station = "station";
+pagesNames.trader = "traderOverview";
+pagesNames.research = "research";
+pagesNames.shipyard = "shipyard";
+pagesNames.defense = "defense";
+pagesNames.fleet = "fleet";
+pagesNames.galaxy = "galaxy";
+pagesNames.empire = "empire";
+pagesNames.alliance = "alliance";
 
 //Switch between planets
 function switchPlanetToNumber(number) {

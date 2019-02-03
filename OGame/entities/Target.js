@@ -14,7 +14,10 @@ class Target {
     }
 
     doTarget() {
-        //Go to planet
-        switchPlanetToNumber(this.planet);
+        //Go to planet - Only if its not activated
+        var planetSelected = $('#planetList div a').get(this.planet);
+        if (planetSelected.className.includes("active")) {
+            switchPlanetToNumber(this.planet);
+        }
     };
 }
