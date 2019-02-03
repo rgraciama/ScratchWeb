@@ -7,11 +7,11 @@ function importarScript(nombre, callback) {
 
 var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@latest/OGame/";
 /* Entities & Functions */
-importarScript(headUrl & "entities/Target.js");
+importarScript(headUrl + "entities/Target.js");
 /* Libraries */
-importarScript(headUrl & "libs/waitForKeyElements.js");
+importarScript(headUrl + "libs/waitForKeyElements.js");
 /* utils */
-importarScript(headUrl & "util/buildStructure.js");
-importarScript(headUrl & "util/dashboard.js");
+importarScript(headUrl + "util/buildStructure.js");
+importarScript(headUrl + "util/dashboard.js");
 /* main*/
-importarScript(headUrl & "_main.js");
+importarScript(headUrl + "_main.js");
