@@ -9,7 +9,7 @@ setTimeout(function() {
 //Objetivo 1
 let t1 = new Target(0,0,0);
 
-if (window.location.href.contains(pages[t1.what])) {
+if (window.location.href.includes(pages[t1.what])) {
     goToMenuOption(t1.what);
 }
 
