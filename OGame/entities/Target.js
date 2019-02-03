@@ -14,10 +14,21 @@ class Target {
     }
 
     doTarget() {
-        //Go to planet - Only if its not activated
-        var planetSelected = $('#planetList div a').get(this.planet);
-        if (planetSelected.className.includes("active")) {
-            switchPlanetToNumber(this.planet);
-        }
+        goToPlanet(this.planet);
+        goToWhat(this.what);
+        //goToWhich(this.which);
     };
+}
+
+function goToPlanet(planet) {
+    var planetSelected = $('#planetList div a').get(planet);
+    if (!planetSelected.className.includes("active")) {
+        switchPlanetToNumber(planet);
+    }
+}
+
+function goToWhat(what) {
+    if (!window.location.href.includes(pages[t1.what])) {
+        goToMenuOption(t1.what);
+    }
 }
