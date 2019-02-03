@@ -18,8 +18,6 @@ pages.galaxy = "galaxy";
 //pages.empire = "empire";
 pages.alliance = "alliance";*/
 
-
-
 //Switch between planets
 function switchPlanetToNumber(number) {
     $($('#planetList div img').get(number)).click();
