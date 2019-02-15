@@ -32,3 +32,7 @@ function goToWhat(what) {
         goToMenuOption(t1.what);
     }
 }
+
+function goToWhich(which) {
+    
+}
