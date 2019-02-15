@@ -5,7 +5,7 @@ function importarScript(nombre, callback) {
     document.querySelector("head").appendChild(s);
 }
 
-var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb@master/OGame/";
+var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/OGame/";
 /* Entities & Functions */
 importarScript(headUrl + "entities/Target.js");
 /* Libraries */
