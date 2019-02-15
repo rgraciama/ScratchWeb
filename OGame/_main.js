@@ -1,10 +1,10 @@
 //Prueba 2
 
-/*var randNum = Math.floor(Math.random() * (+150000 - +60000)) + +60000;
+var randNum = Math.floor(Math.random() * (+150000 - +60000)) + +60000;
 waitForKeyElements (".fastBuild", buildStructure);
 setTimeout(function() {
     location.reload();
-},randNum);*/
+},randNum);
 
 
 //Objetivo 1
