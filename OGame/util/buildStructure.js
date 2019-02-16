@@ -5,7 +5,7 @@ function buildAnyStructureExceptOneByName(structureName) {
         var isStructure = true;
         while (isStructure && (pos < max)) {
             isStructure = $($('.fastBuild').get(pos)).attr("title").includes(structureName);
-            pos++;
+            if (isStructure) pos++;
         }
         if (!isStructure) $('.fastBuild').get(pos).click();
     }
@@ -18,7 +18,7 @@ function buildStructureByName(structureName) {
         var isStructure = false;
         while (!isStructure && (pos < max)) {
             isStructure = $($('.fastBuild').get(pos)).attr("title").includes(structureName);
-            pos++;
+            if (!isStructure) pos++;
         }
         if (isStructure) $('.fastBuild').get(pos).click();
     }
