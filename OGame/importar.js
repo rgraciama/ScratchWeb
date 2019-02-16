@@ -15,3 +15,6 @@ importarScript(headUrl + "util/buildStructure.js");
 importarScript(headUrl + "util/dashboard.js");
 /* main*/
 importarScript(headUrl + "_main.js");
+
+//purge jsdelivr
+//https://purge.jsdelivr.net/gh/rgraciama@latest
