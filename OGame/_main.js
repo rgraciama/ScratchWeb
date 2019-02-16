@@ -15,9 +15,12 @@ setTimeout(function() {
 
 function buildStructure() {
     if (resources.energy > 0) {
+        //var names = ["Orbital"]
+        //buildAnyStructureExceptArrayNames(names);
+
         //buildStructureByName('energía');
-        buildFirstStructure();
-        //buildAnyStructureExceptOneByName('energía');
+        //buildFirstStructure();
+        buildAnyStructureExceptOneByName('Orbital');
     } else {
         buildStructureByName('energía');
     }
