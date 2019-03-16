@@ -3,10 +3,11 @@ islands.set("Ibiza", "505_536");
 islands.set("Cuba", "505_530");
 islands.set("Nido", "496_531");
 islands.set("Mallorca", "513_528");
+islands.set("Bora Bora", "504_544");
 var i = 0;
 
 (
-    function() {															// functie die het script opstart
+    function() {
         observe2(300);
     }
 )();
