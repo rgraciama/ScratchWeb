@@ -25,6 +25,6 @@ function observe2(time) {
 function setNamesLabels() {
     //Islas
     for (var [key, value] of islands) {
-        $('#mini_i'+value).append("<span class='labels-islands'>"+key+"</span>");
+        $('#mini_i'+value).append("<span class='labels-islands' style='position:absolute;top:10%;left:20%'>"+key+"</span>");
     }
 }
