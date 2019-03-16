@@ -15,7 +15,7 @@ var i = 0;
 function observe2(time) {
     if(i<10) i++;
     else {
-        if($("div#minimap_canvas.expanded").is(":visible") && $('.labels-islands').size()==0) setNamesLabels();
+        if($("div#minimap_canvas.expanded").is(":visible")) setNamesLabels();
     }
     setTimeout(function() {
         observe2(time);
@@ -25,6 +25,9 @@ function observe2(time) {
 function setNamesLabels() {
     //Islas
     for (var [key, value] of islands) {
-        $('#mini_i'+value).append("<span class='labels-islands' style='position:absolute;left:20%;'>"+key+"</span>");
+        if (!$("span#island_"+value).is(":visible")) {
+            $('#mini_i'+value).append("<span id='island_"+value+"' class='labels-islands' style='position:absolute;left:20%;'>"+key+"</span>");
+        }
     }
+
 }
