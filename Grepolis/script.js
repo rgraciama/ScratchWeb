@@ -8,3 +8,8 @@
 // @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/getMunecas_v002.js
 // @grant        none
 // ==/UserScript==
+(
+    function() {
+        observe2(300);
+    }
+)();

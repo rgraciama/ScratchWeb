@@ -10,7 +10,7 @@ var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/Grepolis/";
 importarScript("https://www.gstatic.com/firebasejs/5.9.0/firebase.js");
 importarScript(headUrl + "session/session_v001.js");
 importarScript(headUrl + "islands/islands_v001.js");
-importarScript(headUrl + "_main_v001.js");
+importarScript(headUrl + "_main_v002.js");
 
 //purge jsdelivr
 //https://purge.jsdelivr.net/gh/rgraciama@latest
