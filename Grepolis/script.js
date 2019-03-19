@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Munecas over the world!
+// @name         ¡Muñecas de Famosa!
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @description  try to take over the world!
