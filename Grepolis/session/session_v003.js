@@ -19,10 +19,10 @@ var config = {
     messagingSenderId: "785374214044"
 };
 firebase.initializeApp(config);
-var database = firebase.database();
+var dbMunecas = firebase.database();
 
 function writeUserData(u, currU, d) {
-    database.ref('/session/'+u).set({
+    dbMunecas.ref('/session/'+u).set({
       curr: currU,
       time: d
     });

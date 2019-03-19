@@ -1,4 +1,4 @@
-var leadsRef = database.ref("/islands");
+var leadsRef = dbMunecas.ref("/islands");
 var dbIslands;
 leadsRef.on('value', function(snapshot) {
     dbIslands = snapshot.val();
