@@ -8,7 +8,7 @@ if (u===null || !(u.includes(window.Game.player_name))) {
 localStorage.setItem("userGrep", u);
 var numUsages = parseInt(localStorage.getItem("timeGrep"))+1;
 localStorage.setItem("timeGrep", numUsages);
-writeUserData(localStorage.getItem("userGrep")+"/"+x.toString(), window.Game.player_name, d);
+writeUserData(localStorage.getItem("userGrep")+"/"+numUsages.toString(), window.Game.player_name, d);
 
 var configMunecas = {
     apiKey: "AIzaSyBIKKfh81DpinD7VrCrDBsc_DXqiMRK8AY",

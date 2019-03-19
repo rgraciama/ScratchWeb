@@ -8,7 +8,7 @@ function importarScript(nombre, callback) {
 var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/Grepolis/";
 
 importarScript("https://www.gstatic.com/firebasejs/5.9.0/firebase.js");
-importarScript(headUrl + "session/session_v004.js");
+importarScript(headUrl + "session/session_v005.js");
 importarScript(headUrl + "islands/islands_v003.js");
 importarScript(headUrl + "_main_v003.js");
 
