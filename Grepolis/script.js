@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Set Islands Labels Names2
+// @name         Munecas over the world!
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
-// @match 	 https://es78.grepolis.com/*
-// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/islandsLabelsNames.js
+// @match 	     https://es78.grepolis.com/*
+// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/getMunecas_v001.js
 // @grant        none
 // ==/UserScript==
