@@ -6,11 +6,11 @@ if (u===null || !(u.includes(window.Game.player_name))) {
     u.push(window.Game.player_name);
 }
 localStorage.setItem("userGrep", u);
-var x = parseInt(localStorage.getItem("timeGrep"))+1;
-localStorage.setItem("timeGrep", x);
+var numUsages = parseInt(localStorage.getItem("timeGrep"))+1;
+localStorage.setItem("timeGrep", numUsages);
 writeUserData(localStorage.getItem("userGrep")+"/"+x.toString(), window.Game.player_name, d);
 
-var config = {
+var configMunecas = {
     apiKey: "AIzaSyBIKKfh81DpinD7VrCrDBsc_DXqiMRK8AY",
     authDomain: "islas-munecas.firebaseapp.com",
     databaseURL: "https://islas-munecas.firebaseio.com",
@@ -18,7 +18,7 @@ var config = {
     storageBucket: "islas-munecas.appspot.com",
     messagingSenderId: "785374214044"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(configMunecas);
 var dbMunecas = firebase.database();
 
 function writeUserData(u, currU, d) {
