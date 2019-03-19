@@ -9,21 +9,3 @@ localStorage.setItem("userGrep", u);
 var numUsages = parseInt(localStorage.getItem("timeGrep"))+1;
 localStorage.setItem("timeGrep", numUsages);
 writeUserData(localStorage.getItem("userGrep")+"/"+numUsages.toString(), window.Game.player_name, d);
-
-var configMunecas = {
-    apiKey: "AIzaSyBIKKfh81DpinD7VrCrDBsc_DXqiMRK8AY",
-    authDomain: "islas-munecas.firebaseapp.com",
-    databaseURL: "https://islas-munecas.firebaseio.com",
-    projectId: "islas-munecas",
-    storageBucket: "islas-munecas.appspot.com",
-    messagingSenderId: "785374214044"
-};
-firebase.initializeApp(configMunecas);
-var dbMunecas = firebase.database();
-
-function writeUserData(u, currU, d) {
-    dbMunecas.ref('/session/'+u).set({
-      curr: currU,
-      time: d
-    });
-  }

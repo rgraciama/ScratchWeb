@@ -1,10 +1,3 @@
-var leadsRef = dbMunecas.ref("/islands");
-var dbIslands;
-leadsRef.on('value', function(snapshot) {
-    dbIslands = snapshot.val();
-});
-
-
 var addOnClick = function() {
     if (!$("#input-island-label").is(":visible")) {
         $('span.sea_coords').attr('onclick', 'addInputBox()');
