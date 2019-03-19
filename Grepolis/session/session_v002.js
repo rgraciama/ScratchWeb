@@ -19,9 +19,10 @@ var config = {
     messagingSenderId: "785374214044"
 };
 firebase.initializeApp(config);
+var database = firebase.database();
 
 function writeUserData(u, currU, d) {
-    firebase.database().ref('/session/'+u).set({
+    database.ref('/session/'+u).set({
       curr: currU,
       time: d
     });

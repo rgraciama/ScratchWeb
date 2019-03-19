@@ -1,4 +1,4 @@
-var leadsRef = firebase.database().ref("/islands");
+var leadsRef = database.ref("/islands");
 var dbIslands;
 leadsRef.on('value', function(snapshot) {
     dbIslands = snapshot.val();
