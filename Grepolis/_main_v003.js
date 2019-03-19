@@ -1,4 +1,11 @@
 var i = 0;
+
+(
+    function() {
+        observe2(300);
+    }
+)();
+
 function observe2(time) {
     if(i<10) i++;
     else {
