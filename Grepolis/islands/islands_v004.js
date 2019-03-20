@@ -6,7 +6,7 @@ var addOnClick = function() {
 function addInputBox() {
    $(".island_info").append("<input type='text' id='input-island-label'>");
 }
-function setMapViewNamesLabels() {
+function setMapViewNamesLabels(dbIslands) {
     //Islas Mapa
     Object.keys(dbIslands).forEach(function(key) {
         //console.log('Key : ' + key + ', Value : ' + dbIslands[key]);
@@ -16,7 +16,7 @@ function setMapViewNamesLabels() {
     });
 
 }
-function setCityViewNamesLabels() {
+function setCityViewNamesLabels(dbIslands) {
     //Islas Mapa
     Object.keys(dbIslands).forEach(function(key) {
         if (!$("span#islandCity_"+key).is(":visible")) {
