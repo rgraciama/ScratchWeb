@@ -6,6 +6,7 @@ var addOnClick = function() {
         
         var islandName = $('#islandCity_'+islandKey).text();
         $('#input-island-label').val(islandName);
+    }
 }
 
 function addInputBox() {
