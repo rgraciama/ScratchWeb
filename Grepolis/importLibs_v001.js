@@ -1,9 +1,5 @@
 var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/Grepolis/";
-var listLibs = ["https://www.gstatic.com/firebasejs/5.9.0/firebase.js",
-                headUrl + "dbFirebase/dbFirebase_v002.js",
-                headUrl + "session/session_v007.js",
-                headUrl + "islands/islands_v006.js",
-                headUrl + "_main_v004.js"];
+var listLibs = [headUrl + "islands/func_islands_v001.js"];
 
 //listLibs.reverse();
 function importarScript(nombre, callback) {
@@ -19,5 +15,6 @@ function doImportLibs(listLibs) {
     }
 }
 
+doImportLibs();
 //purge jsdelivr
 //https://purge.jsdelivr.net/gh/rgraciama@latest
