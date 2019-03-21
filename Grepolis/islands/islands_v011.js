@@ -1,3 +1,5 @@
+$("body").append("<input id='write-island' type='hidden' value=''/>");
+
 var addOnClick = function() {
     if (!$("#input-island-label").is(":visible")) {
         $(".island_info").append("<input type='text' id='input-island-label' style='width:120px;'>");
@@ -12,7 +14,6 @@ var addOnClick = function() {
         $(".island_info").append("<a onClick='writeIsland()' "+
         "style='float: left; margin: 0px 0px 0px 4px; display: block; width: 22px; height: 23px; background: url(&quot;https://grmh.pl/gui/but.png&quot;) -132px 0px repeat scroll;'"+
         "></a>");
-        $(".island_info").append("<input id='write-island' type='hidden' value=''");
     }
 }
 
@@ -34,4 +35,11 @@ function setCityViewNamesLabels(dbIslands) {
             $('#island_'+key).append("<span id='islandCity_"+key+"' class='labels-islandsCity' style='font-weight: bold;position:absolute;left:20%;top:-20px;z-index: 900;'>"+dbIslands[key]+"</span>");
         }
     });
+}
+
+function writeIslandName() {
+    var islandTag = $('#write-island').val();
+    var islandKeyName = islandTag.split(",");
+    writeIslandData(islandKeyName[0], islandKeyName[1], dbMunecas);
+    $('#write-island').val("");
 }

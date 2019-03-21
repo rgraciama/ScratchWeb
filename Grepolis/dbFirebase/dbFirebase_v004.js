@@ -25,7 +25,7 @@ leadsRef.on('value', function(snapshot) {
 });
 
 //write island
-function writeUserData(key, name, dbMunecas) {
+function writeIslandData(key, name, dbMunecas) {
   dbMunecas.ref('/islands').set({
     key: name
   });

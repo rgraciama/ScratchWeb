@@ -3,5 +3,5 @@ function writeIsland() {
     var islandKey = $('.islandinfo_coords').text().match(/([.0-9]*\d\/[.0-9]*\d)/g);
     islandKey = islandKey.toString().replace("/", "_");
     var islandName = $('#islandCity_'+islandKey).text();
-    $('#write-island').value(islandKey + ","+islandName);
+    $('#write-island').val(islandKey + ","+islandName);
 }

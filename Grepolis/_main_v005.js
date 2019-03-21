@@ -14,6 +14,7 @@ function observe2(time) {
             if(!$("div#minimap_canvas.expanded").is(":visible")) setCityViewNamesLabels(dbIslands);
         }
         if($(".islandinfo_coords").is(":visible")) addOnClick();
+        if($("#write-island").val()!=="") writeIslandName();
     }
     setTimeout(function() {
         observe2(time);
