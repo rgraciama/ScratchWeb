@@ -10,6 +10,6 @@
 // @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/session/session_v007.js
 // @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/islands/islands_v007.js
 // @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/_main_v004.js
-// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/importLibs_v003.js
+// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/importLibs_v004.js
 // @grant        none
 // ==/UserScript==

@@ -1,5 +1,5 @@
 var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/Grepolis/";
-var listLibs = [headUrl + "islands/func_islands_v002.js",
+var listLibs = [headUrl + "islands/func_islands_v003.js",
                 headUrl + "conquests/func_conquests_v001.js"];
 
 //listLibs.reverse();
