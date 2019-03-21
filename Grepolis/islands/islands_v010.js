@@ -1,11 +1,18 @@
 var addOnClick = function() {
     if (!$("#input-island-label").is(":visible")) {
-        $(".island_info").append("<input type='text' id='input-island-label'>");
+        $(".island_info").append("<input type='text' id='input-island-label' style='width:120px;'>");
+
+
         var islandKey = $('.islandinfo_coords').text().match(/([.0-9]*\d\/[.0-9]*\d)/g);
         islandKey = islandKey.toString().replace("/", "_");
         
         var islandName = $('#islandCity_'+islandKey).text();
         $('#input-island-label').val(islandName);
+
+        $(".island_info").append("<a onClick='writeIsland()' "+
+        "style='float: left; margin: 0px 0px 0px 4px; display: block; width: 22px; height: 23px; background: url(&quot;https://grmh.pl/gui/but.png&quot;) -132px 0px repeat scroll;'"+
+        "></a>");
+        $(".island_info").append("<input id='write-island' type='hidden' value=''");
     }
 }
 

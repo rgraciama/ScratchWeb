@@ -23,3 +23,10 @@ var dbIslands;
 leadsRef.on('value', function(snapshot) {
     dbIslands = snapshot.val();
 });
+
+//write island
+function writeUserData(key, name, dbMunecas) {
+  dbMunecas.ref('/islands').set({
+    key: name
+  });
+}
