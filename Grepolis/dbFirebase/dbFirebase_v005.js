@@ -25,8 +25,8 @@ leadsRef.on('value', function(snapshot) {
 });
 
 //write island
-function writeIslandData(key, name, dbMunecas) {
-  dbMunecas.ref('/islands').set({
-    key: name
-  });
+function writeIslandData(keyIsland, name, dbMunecas) {
+  var island = new Map();
+  island.set(keyIsland, name);
+  dbMunecas.ref('/islands').set(island);
 }
