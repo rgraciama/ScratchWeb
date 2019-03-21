@@ -7,4 +7,4 @@ function addInputBox() {
         var islandName = $('#islandCity_'+islandKey).text();
         $('#input-island-label').val(islandName);
     }
- }
+}
