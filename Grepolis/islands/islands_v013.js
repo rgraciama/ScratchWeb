@@ -19,7 +19,7 @@ var addOnClick = function() {
 
 function setMapViewNamesLabels(dbIslands) {
     //Islas Mapa
-    for (var [key, value] of islands) {
+    for (var [key, value] of dbIslands) {
         if (!$("span#island_"+value).is(":visible")) {
             $('#mini_i'+value).append("<span id='island_"+value+"' class='labels-islands' style='position:absolute;left:20%;top:5px;z-index: 100;'>"+key+"</span>");
         }
@@ -36,7 +36,7 @@ function setMapViewNamesLabels(dbIslands) {
 
 function setCityViewNamesLabels(dbIslands) {
     //Islas Mapa
-    for (var [key, value] of islands) {
+    for (var [key, value] of dbIslands) {
         if (!$("span#islandCity_"+value).is(":visible")) {
             $('#island_'+value).append("<span id='islandCity_"+value+"' class='labels-islandsCity' style='position:absolute;left:20%;top:-20px;z-index: 900;'>"+key+"</span>");
         }
