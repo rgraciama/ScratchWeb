@@ -11,7 +11,8 @@ var dbMunecas = firebase.database();
 
 //write session
 function writeUserData(u, currU, d, dbMunecas) {
-    dbMunecas.ref('/session/'+u).set({
+    dbMunecas.ref('/session').set({
+      last: u,
       curr: currU,
       time: d
     });
