@@ -6,10 +6,10 @@
 // @author       You
 // @match 	     https://es78.grepolis.com/*
 // @require      https://www.gstatic.com/firebasejs/5.9.0/firebase.js
-// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/dbFirebase/dbFirebase_v015.js
-// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/session/session_v009.js
-// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/islands/islands_v016.js
-// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/_main_v005.js
-// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/importLibs_v007.js
+// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/dbFirebase/dbFirebase_v002.js
+// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/session/session_v002.js
+// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/islands/islands_v002.js
+// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/_main_v002.js
+// @require      https://raw.githubusercontent.com/rgraciama/ScratchWeb/master/Grepolis/importLibs_v002.js
 // @grant        none
 // ==/UserScript==
