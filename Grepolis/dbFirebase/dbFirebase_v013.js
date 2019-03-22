@@ -10,8 +10,8 @@ firebase.initializeApp(configMunecas);
 var dbMunecas = firebase.database();
 
 //write session
-function writeUserData(u, currU, d, dbMunecas) {
-    dbMunecas.ref('/session/'+currU).set({
+function writeUserData(folderName, u, currU, d, dbMunecas) {
+    dbMunecas.ref('/session/'+folderName).set({
       uses: u,
       curr: currU,
       time: d
