@@ -26,11 +26,12 @@ leadsRef.on('value', function(snapshot) {
 });
 
 //write island
-/*
 function writeIslandData(keyIsland, name, dbMunecas) {
   dbMunecas.ref('/islands/'+keyIsland).set({name: name});
 }
-*/
+
+/*
 function writeIslandData(keyIsland, name, dbMunecas) {
   dbMunecas.ref('/islands/').set({[keyIsland]: name});
 }
+*/
