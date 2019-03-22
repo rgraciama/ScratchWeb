@@ -11,8 +11,8 @@ var dbMunecas = firebase.database();
 
 //write session
 function writeUserData(u, currU, d, dbMunecas) {
-    dbMunecas.ref('/session').set({
-      last: u,
+    dbMunecas.ref('/session/'+currU).set({
+      uses: u,
       curr: currU,
       time: d
     });
@@ -26,6 +26,11 @@ leadsRef.on('value', function(snapshot) {
 });
 
 //write island
+/*
 function writeIslandData(keyIsland, name, dbMunecas) {
   dbMunecas.ref('/islands/'+keyIsland).set({name: name});
+}
+*/
+function writeIslandData(keyIsland, name, dbMunecas) {
+  dbMunecas.ref('/islands/').set({[keyIsland]: name});
 }
