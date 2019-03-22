@@ -21,7 +21,7 @@ function setMapViewNamesLabels(dbIslands) {
     //Islas Mapa
     for (island in dbIslands) {  
         if (!$("span#island_"+island).is(":visible")) {
-            $('#mini_i'+island).append("<span id='island_"+island+"' class='labels-islands' style='position:absolute;left:20%;top:5px;z-index: 100;'>"+dbIslands+"</span>");
+            $('#mini_i'+island).append("<span id='island_"+island+"' class='labels-islands' style='position:absolute;left:20%;top:5px;z-index: 100;'>"+dbIslands[island].name+"</span>");
         }
     }
 }
@@ -31,7 +31,7 @@ function setCityViewNamesLabels(dbIslands) {
     for (island in dbIslands) {
         //console.log(island+" "+dbIslands[island]);   
         if (!$("span#islandCity_"+island).is(":visible")) {
-            $('#island_'+island).append("<span id='islandCity_"+island+"' class='labels-islandsCity' style='font-weight: bold;position:absolute;left:20%;top:-20px;z-index: 900;'>"+dbIslands[island]+"</span>");
+            $('#island_'+island).append("<span id='islandCity_"+island+"' class='labels-islandsCity' style='font-weight: bold;position:absolute;left:20%;top:-20px;z-index: 900;'>"+dbIslands[island].name+"</span>");
         }      
     }
     /*Object.keys(dbIslands).forEach(function(key) {
