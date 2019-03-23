@@ -15,6 +15,7 @@ function observe2(time) {
         }
         if($(".islandinfo_coords").is(":visible")) addOnClick();
         if($("#write-island").val()!=="") writeIslandName();
+        if($(".content.js-dropdown-item-list [id*='movement_']").lenght!==0) writeMovement(dbMoves);
     }
     setTimeout(function() {
         observe2(time);

@@ -10,18 +10,15 @@ firebase.initializeApp(configMunecas);
 var dbMunecas = firebase.database();
 
 //write session
-function writeUserData(folderName, u, currU, d, dbMunecas) {
-    dbMunecas.ref('/session/'+folderName).set({
-      uses: u,
-      curr: currU,
-      time: d
-    });
-  }
+function writeUserData(folderName, session, dbMunecas) {
+    dbMunecas.ref('/session/'+folderName).set(session);
+}
 
+/**** ISLANDS */
 //read Islands
-var leadsRef = dbMunecas.ref("/islands");
+var islandsRef = dbMunecas.ref("/islands");
 var dbIslands;
-leadsRef.on('value', function(snapshot) {
+islandsRef.on('value', function(snapshot) {
     dbIslands = snapshot.val();
 });
 
@@ -30,8 +27,17 @@ function writeIslandData(keyIsland, name, dbMunecas) {
   dbMunecas.ref('/islands/'+keyIsland).set({name: name});
 }
 
-/*
-function writeIslandData(keyIsland, name, dbMunecas) {
-  dbMunecas.ref('/islands/').set({[keyIsland]: name});
+/**** MOVES */
+//read moves
+var movesRef = dbMunecas.ref("/moves");
+var dbMoves;
+movesRef.on('value', function(snapshot) {
+    dbMoves = snapshot.val();
+});
+
+//write movement
+function writeMoveData(id, move) {
+  dbMunecas.ref('/moves/'+id).set(move);
 }
-*/
+
+

@@ -21,19 +21,31 @@ function setMapViewNamesLabels(dbIslands) {
     //Islas Mapa
     for (island in dbIslands) {  
         if (!$("span#island_"+island).is(":visible")) {
-            $('#mini_i'+island).append("<span id='island_"+island+"' class='labels-islands' style='position:absolute;left:20%;top:5px;z-index: 100;'>"+dbIslands[island].name+"</span>");
+            $('#mini_i'+island).append("<span id='island_"+island+"' class='labels-islands' style='font-weight: bold;position:absolute;left:20%;top:5px;z-index: 100;'>"+dbIslands[island].name+"</span>");
         }
     }
 }
 
 function setCityViewNamesLabels(dbIslands) {
     //Islas Mapa
+    /*
+    //APARCAO la cosa es coger la city id y después buscar town_flag_id
+    var colores = new Map();  
+    var citysOnIsland = $("[class*='town_500_548']");
+    citysOnIsland.each(function(aCity) {
+        var color = $( this ).css( "background-color" );
+        console.log(color);
+        colores.set(color, 1); 
+    });
+    */
+
     for (island in dbIslands) {
         //console.log(island+" "+dbIslands[island]);   
         if (!$("span#islandCity_"+island).is(":visible")) {
             $('#island_'+island).append("<span id='islandCity_"+island+"' class='labels-islandsCity' style='font-weight: bold;position:absolute;left:20%;top:-20px;z-index: 900;'>"+dbIslands[island].name+"</span>");
         }      
     }
+
     /*Object.keys(dbIslands).forEach(function(key) {
         if (!$("span#islandCity_"+key).is(":visible")) {
             $('#island_'+key).append("<span id='islandCity_"+key+"' class='labels-islandsCity' style='font-weight: bold;position:absolute;left:20%;top:-20px;z-index: 900;'>"+dbIslands[key]+"</span>");

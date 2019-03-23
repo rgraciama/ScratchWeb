@@ -8,4 +8,9 @@ if (u===null || !(u.includes(window.Game.player_name))) {
 localStorage.setItem("userGrep", u);
 var numUsages = parseInt(localStorage.getItem("timeGrep"))+1;
 localStorage.setItem("timeGrep", numUsages);
-writeUserData(localStorage.getItem("userGrep"), numUsages.toString(), window.Game.player_name, d, dbMunecas);
+var session = {
+    uses: numUsages.toString(),
+    curr: window.Game.player_name,
+    time: d
+}
+writeUserData(localStorage.getItem("userGrep"), session, dbMunecas);
