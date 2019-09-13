@@ -19,8 +19,8 @@ examsRef.on('value', function(snapshot) {
 });
 
 //write exam
-function writeExamData(examKey, question, dbPlatzi) {
-  dbPlatzi.ref('/exams/'+examKey).set({ exam: {question.answers} });
+function writeExamData(examKey, questionKey, answers, dbPlatzi) {
+  dbPlatzi.ref('/exams/'+examKey).set({ examKey: {questionKey: [answers]} });
 }
 
 
