@@ -12,10 +12,13 @@ function observe2(time) {
         if (dbExams !== null) {
 
         }
-        if ($('#buttonId').attr("onClick") != undefined) {
-            $('#buttonId').click(function() {
-                setExam();
-            });
+        if ($("#buttonId").attr("onClick") === undefined) {
+            //$('#buttonId').click(function() {
+            //    setExam();
+            //});
+
+            //TODO añade la funcion onClick
+            $("#buttonId").addEventListener('click', function(){ alert('blah');}, false);
         }
     }
     setTimeout(function() {
