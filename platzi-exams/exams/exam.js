@@ -9,9 +9,9 @@ function setExam() {
     var questionKey = document.getElementById('question').innerText;
 
 
-    $( ".Answer-content" ).each(function( index, answer ) {
+    $( ".Answer-content" ).each(function( index, answerElement ) {
         var answer = {};
-        answer.key=answer.textContent;
+        answer.key=answerElement.textContent;
         answer.value="-";
         writeExamData(examKey, questionKey, answer);
     });
