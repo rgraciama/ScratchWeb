@@ -31,5 +31,5 @@ examsRef.on('value', function(snapshot) {
 
 //write exam
 function writeAnswerData(examKey, questionKey, answer) {
-    dbPlatzi.ref('/exams/'+examKey).child(answer).set("-");
+    dbPlatzi.ref('/exams/'+examKey).child(questionKey).child(answer).set("-");
 }
