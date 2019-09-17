@@ -7,11 +7,11 @@ function setExam() {
     var examKeyStr = window.location.href;
     var examKey = examKeyStr.replace(".", "_").replace(/\//g,"_");;
     var questionKey = document.getElementById('question').innerText;
-    var answers = [];
+    var answers = new Map();
 
     $( ".Answer-content" ).each(function( index, answer ) {
 
-        answers.push({[answer?answer:index]:"-"});
+        answers.set(answer.innerText?answer.innerText:index, "-");
     });
 
 
