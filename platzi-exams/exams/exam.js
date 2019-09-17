@@ -9,8 +9,9 @@ function setExam() {
     var questionKey = document.getElementById('question').innerText;
     var answers = [];
 
-    $( ".Answer-content" ).each(function( index ) {
-        answers.push({[$( this ).text()]: "-"});
+    $( ".Answer-content" ).each(function( index, answer ) {
+
+        answers.push({[answer?answer:index]:"-"});
     });
 
 
