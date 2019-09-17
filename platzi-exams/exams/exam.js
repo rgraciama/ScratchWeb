@@ -18,3 +18,16 @@ function setExam() {
     writeExamData(examKey, questionKey, answers, dbPlatzi);
 
 }
+
+/**** EXAMS */
+//read Exams
+var examsRef = dbPlatzi.ref("/exams");
+var dbExams;
+examsRef.on('value', function(snapshot) {
+    dbExams = snapshot.val();
+});
+
+//write exam
+function writeExamData(examKey, questionKey, answers, dbPlatzi) {
+    dbPlatzi.ref('/exams/'+examKey).child(questionKey).set(answers);
+}
