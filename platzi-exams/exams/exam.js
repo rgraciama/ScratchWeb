@@ -6,12 +6,13 @@ function setExam() {
 
     var examKeyStr = window.location.href;
     var examKey = examKeyStr.replace(".", "_").replace(/\//g,"_");;
+
+    writeExamData(examKey);
     var questionKey = document.getElementById('question').innerText;
-    var answers = new Map();
+    writeQuestionData(examKey, questionKey);
 
     $( ".Answer-content" ).each(function( index, answer ) {
-
-        answers.set(answer.innerText?answer.innerText:index, "-");
+        writeAnswerData(examKey, questionKey, {key: answer.innerHtml, value: "-"});
     });
 
 
@@ -30,6 +31,14 @@ examsRef.on('value', function(snapshot) {
 });
 
 //write exam
-function writeExamData(examKey, questionKey, answers, dbPlatzi) {
-    dbPlatzi.ref('/exams/'+examKey).child(questionKey).set(answers);
+function writeExamData(examKey) {
+    dbPlatzi.ref('/exams/').set(examKey);
+}
+
+function writeQuestionData(examKey, questionKey) {
+    dbPlatzi.ref('/exams/'+examKey).set(questionKey);
+}
+
+function writeAnswerData(examKey, questionKey, answer) {
+    dbPlatzi.ref('/exams/'+examKey/questionKey).child(answer.key).set(answer.value);
 }
