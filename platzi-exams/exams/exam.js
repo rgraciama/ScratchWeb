@@ -10,14 +10,13 @@ function setExam() {
     var answers = [];
 
     $( ".Answer-content" ).each(function( index ) {
-        answers.push($( this ).text())
+        answers.push({[$( this ).text()]: "-"});
     });
 
-    var prueba = {[questionKey]: answers}
 
     //TODO hacer que answer tengan la frase de la pregunta y valor en un map.
 
-    writeExamData(examKey, questionKey, prueba, dbPlatzi);
+    writeExamData(examKey, questionKey, answers, dbPlatzi);
 
 }
 
