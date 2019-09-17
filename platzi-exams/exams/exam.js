@@ -7,16 +7,19 @@ function setExam() {
     var examKeyStr = window.location.href;
     var examKey = examKeyStr.replace(".", "_").replace(/\//g,"_");;
     var questionKey = document.getElementById('question').innerText;
-    var answers = new Map();
+
 
     $( ".Answer-content" ).each(function( index, answer ) {
-        answers.set(answer.innerHTML);
+        var answer = {};
+        answer.key=answer.textContent;
+        answer.value="-";
+        writeExamData(examKey, questionKey, answer);
     });
 
 
     //TODO hacer que answer tengan la frase de la pregunta y valor en un map.
 
-    writeExamData(examKey, questionKey, answers, dbPlatzi);
+    //writeExamData(examKey, questionKey, answers, dbPlatzi);
 
 }
 
@@ -29,6 +32,6 @@ examsRef.on('value', function(snapshot) {
 });
 
 //write exam
-function writeExamData(examKey, questionKey, answers, dbPlatzi) {
-    dbPlatzi.ref('/exams/'+examKey).child(questionKey).push(answers);
+function writeExamData(examKey, questionKey, answer) {
+    dbPlatzi.ref('/exams/'+examKey).child(questionKey).push(answer);
 }
