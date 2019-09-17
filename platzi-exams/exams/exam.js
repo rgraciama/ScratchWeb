@@ -11,13 +11,13 @@ function setExam() {
 
     $( ".Answer-content" ).each(function( index, answerElement ) {
         var answer=answerElement.textContent.trim();
-        writeExamData(examKey, questionKey, answer);
+        writeAnswerData(examKey, questionKey, answer);
     });
 
 
     //TODO hacer que answer tengan la frase de la pregunta y valor en un map.
 
-    //writeExamData(examKey, questionKey, answers, dbPlatzi);
+    //writeAnswerData(examKey, questionKey, answers, dbPlatzi);
 
 }
 
@@ -30,6 +30,6 @@ examsRef.on('value', function(snapshot) {
 });
 
 //write exam
-function writeExamData(examKey, questionKey, answer) {
-    dbPlatzi.ref('/exams/'+examKey).child(questionKey).set(answer);
+function writeAnswerData(examKey, questionKey, answer) {
+    dbPlatzi.ref('/exams/'+examKey).child(answer).set("-");
 }
