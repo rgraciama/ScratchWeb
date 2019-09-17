@@ -27,13 +27,13 @@ examsRef.on('value', function(snapshot) {
 
 //write exam
 function writeExamData(examKey) {
-    dbPlatzi.ref('/exams/').set(examKey);
+    dbPlatzi.ref('/exams/').push(examKey);
 }
 
 function writeQuestionData(examKey, questionKey) {
-    dbPlatzi.ref('/exams/'+examKey).set(questionKey);
+    dbPlatzi.ref('/exams/'+examKey).push(questionKey);
 }
 
 function writeAnswerData(examKey, questionKey, answer) {
-    dbPlatzi.ref('/exams/'+examKey/questionKey).child(answer.key).set(answer.value);
+    dbPlatzi.ref('/exams/'+examKey/questionKey).set(answer.key).set(answer.value);
 }
