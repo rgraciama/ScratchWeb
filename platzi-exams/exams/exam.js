@@ -10,7 +10,7 @@ function setExam() {
     var answers = new Map();
 
     $( ".Answer-content" ).each(function( index, answer ) {
-        answers.push(answer.innerHTML);
+        answers.set(answer.innerHTML);
     });
 
 
