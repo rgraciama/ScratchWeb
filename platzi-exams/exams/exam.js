@@ -7,8 +7,11 @@ function setExam() {
     var examKeyStr = window.location.href;
     var examKey = examKeyStr.replace(".", "_").replace(/\//g,"_");;
     var questionKey = document.getElementById('question').innerText;
-    var answers = [{a: 1},{a: 2},{a: 3}];
-    $('.Answer-content')
+    var answers = [];
+
+    $( ".Answer-content" ).each(function( index ) {
+        answers.push($( this ).text())
+    });
 
     //TODO hacer que answer tengan la frase de la pregunta y valor en un map.
 
