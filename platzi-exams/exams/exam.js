@@ -10,9 +10,7 @@ function setExam() {
 
 
     $( ".Answer-content" ).each(function( index, answerElement ) {
-        var answer = {};
-        answer.key=answerElement.textContent;
-        answer.value="-";
+        var answer=answerElement.textContent.trim();
         writeExamData(examKey, questionKey, answer);
     });
 
@@ -33,5 +31,5 @@ examsRef.on('value', function(snapshot) {
 
 //write exam
 function writeExamData(examKey, questionKey, answer) {
-    dbPlatzi.ref('/exams/'+examKey).child(questionKey).push(answer);
+    dbPlatzi.ref('/exams/'+examKey).child(questionKey).set(answer);
 }
