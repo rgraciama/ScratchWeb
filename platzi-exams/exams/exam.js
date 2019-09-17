@@ -15,11 +15,6 @@ function setExam() {
         writeAnswerData(examKey, questionKey, {key: answer.innerHtml, value: "-"});
     });
 
-
-    //TODO hacer que answer tengan la frase de la pregunta y valor en un map.
-
-    writeExamData(examKey, questionKey, answers, dbPlatzi);
-
 }
 
 /**** EXAMS */
