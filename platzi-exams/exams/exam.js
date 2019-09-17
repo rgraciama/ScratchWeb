@@ -13,9 +13,11 @@ function setExam() {
         answers.push($( this ).text())
     });
 
+    var prueba = {[questionKey]: answers}
+
     //TODO hacer que answer tengan la frase de la pregunta y valor en un map.
 
-    writeExamData(examKey, questionKey, answers, dbPlatzi);
+    writeExamData(examKey, questionKey, prueba, dbPlatzi);
 
 }
 
@@ -29,5 +31,5 @@ examsRef.on('value', function(snapshot) {
 
 //write exam
 function writeExamData(examKey, questionKey, answers, dbPlatzi) {
-    dbPlatzi.ref('/exams/'+examKey).child(questionKey).child(answers).set("prueb");
+    dbPlatzi.ref('/exams/'+examKey).child(questionKey).set(answers);
 }
