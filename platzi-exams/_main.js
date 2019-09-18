@@ -18,7 +18,10 @@ function observe2(time) {
             document.getElementById('buttonId').setAttribute('onclick', 'setExam()');
         } else {
             document.createElement("button", {id: "results"});
-            document.getElementById('results').setAttribute('onclick', 'setResults()');
+            var newButton = document.getElementById('results').setAttribute('onclick', 'setResults()');
+            var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
+
+            document.body.insertBefore(newButton, buttonRegresar);
         }
     }
     setTimeout(function () {
