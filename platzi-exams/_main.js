@@ -1,22 +1,38 @@
 var i = 0;
 
 (
-    function() {
+    function () {
         observe2(300);
     }
 )();
 
 function observe2(time) {
-    if(i<10) i++;
+    var btn = document.getElementById('buttonId');
+    var btnResults = document.getElementById("results");
+    if (i < 10) i++;
     else {
         if (dbExams !== null) {
-            if($("div#minimap_canvas.expanded").is(":visible")) setMapViewNamesLabels(dbExams);
-            if(!$("div#minimap_canvas.expanded").is(":visible")) setCityViewNamesLabels(dbExams);
+
         }
-        if($(".islandinfo_coords").is(":visible")) addOnClick();
-        if($("#write-exam").val()!=="") writeExamName();
+
+        if (!$('ul.Questions-list')[0] && btn.onclick === null) {
+            document.getElementById('buttonId').setAttribute('onclick', 'setExam()');
+        } else if ($('ul.Questions-list')[0] && btnResults === null ){
+            var newButton = document.createElement("button");
+            newButton.setAttribute("id", "results");
+            var newContent = document.createTextNode("Resultados");
+            newButton.appendChild(newContent);
+
+            var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
+
+            buttonRegresar.appendChild(newButton);
+
+            document.getElementById('results').setAttribute('onclick', 'setResults()');
+        }
     }
-    setTimeout(function() {
+    setTimeout(function () {
         observe2(time);
     }, time);
 }
+
+

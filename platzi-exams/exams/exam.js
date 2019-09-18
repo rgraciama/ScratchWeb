@@ -1,44 +1,84 @@
-$("body").append("<input id='write-exam' type='hidden' value=''/>");
+function setExam() {
+    // la idea es un map donde la key sea el examen.
+    // ==> Después el valor sea un map dónde la pregunta sea la key.
+    // ====> El valor sea un map dónde la respuesta sea la key y si es cierto o falso el valor.
 
-var addOnClick = function() {
-    if (!$("#input-exam-label").is(":visible")) {
-        $(".island_info").append("<input type='text' id='input-exam-label' style='width:120px;'>");
 
+    var examKeyStr = window.location.href;
+    var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
+    var questionKey = document.getElementById('question').innerText;
 
-        var islandKey = $('.islandinfo_coords').text().match(/([.0-9]*\d\/[.0-9]*\d)/g);
-        islandKey = islandKey.toString().replace("/", "_");
-        
-        var islandName = $('#islandCity_'+islandKey).text();
-        $('#input-exam-label').val(islandName);
-
-        $(".island_info").append("<a onClick='writeIsland()' "+
-        "style='float: left; margin: 0px 0px 0px 4px; display: block; width: 22px; height: 23px; background: url(&quot;https://grmh.pl/gui/but.png&quot;) -132px 0px repeat scroll;'"+
-        "></a>");
+    if (!dbExams[examKey][questionKey]) {
+        writeAnswers(examKey, questionKey);
+    } else {
+        printAnswers(examKey, questionKey);
     }
 }
 
-function setMapViewNamesLabels(dbExams) {
-    //Exam
-    for (exam in dbExams) {
-        if (!$("span#island_"+exam).is(":visible")) {
-            $('#mini_i'+exam).append("<span id='island_"+exam+"' class='labels-islands' style='font-weight: bold;position:absolute;left:20%;top:5px;z-index: 100;'>"+dbIslands[exam].name+"</span>");
+function writeAnswers(examKey, questionKey) {
+
+    $(".Answer-content").each(function (index, answerElement) {
+        var answer = answerElement.textContent.trim();
+        if (answerElement.className.includes("is-selected")) {
+            writeAnswerData(examKey, questionKey, answer, "*");
+        } else {
+            writeAnswerData(examKey, questionKey, answer, "-");
+        }
+    });
+}
+
+function printAnswers(examKey, questionKey) {
+    $(".Answer-content").each(function (index, answerElement) {
+        var answer = answerElement.textContent.trim();
+        if (dbExams[examKey][questionKey][answer] === "F") {
+            console.log("False");
+            answerElement.css("background", "red");
+        } else if (dbExams[examKey][questionKey][answer] === "T") {
+            console.log("True");
+            answerElement.css("background", "green");
+        }
+    });
+}
+
+/**** EXAMS */
+//read Exams
+var examsRef = dbPlatzi.ref("/exams");
+var dbExams;
+examsRef.on('value', function (snapshot) {
+    dbExams = snapshot.val();
+});
+
+//write exam
+function writeAnswerData(examKey, questionKey, answer, value) {
+    dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
+}
+
+/*** Set Results Exams **/
+function setResults() {
+    //check results and give the results
+    var examKeyStr = window.location.href;
+    var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
+
+    $(".QuestionItem-text").each(function (index, questionElement) {
+        var question = questionElement.innerText.trim();
+        if ($('.QuestionItem-text').parent()[index].className.includes("Correct")) {
+            modifyAnswers(examKey, question);
+        } else {
+            modifyAnswers(examKey, question);
+        }
+
+
+    });
+}
+
+function modifyAnswers(examKey, question) {
+    if (dbExams[examKey][question] !== null) {
+        for (var clave in dbExams[examKey][question]){
+            if (dbExams[examKey][question][clave] === '*') {
+                writeAnswerData(examKey, question, clave, 'T');
+            } else if (dbExams[examKey][question][clave] === '-') {
+                writeAnswerData(examKey, question, clave, 'F');
+            }
         }
     }
-}
-
-function setCityViewNamesLabels(dbExams) {
-    //Islas Mapa
-    for (exam in dbExams) {
-        //console.log(exam+" "+dbExams[exam]);
-        if (!$("span#islandCity_"+exam).is(":visible")) {
-            $('#island_'+exam).append("<span id='islandCity_"+exam+"' class='labels-islandsCity' style='font-weight: bold;position:absolute;left:20%;top:-20px;z-index: 900;'>"+dbExams[exam].name+"</span>");
-        }      
-    }
-}
-
-function writeExamName() {
-    var islandTag = $('#write-exam').val();
-    var islandKeyName = islandTag.split(",");
-    writeExamData(islandKeyName[0], islandKeyName[1], dbPlatzi);
-    $('#write-exam').val("");
 }

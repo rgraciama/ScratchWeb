@@ -1,30 +1,13 @@
-var configMunecas = {
-    apiKey: "AIzaSyBIKKfh81DpinD7VrCrDBsc_DXqiMRK8AY",
-    authDomain: "islas-munecas.firebaseapp.com",
-    databaseURL: "https://islas-munecas.firebaseio.com",
-    projectId: "islas-munecas",
-    storageBucket: "islas-munecas.appspot.com",
-    messagingSenderId: "785374214044"
+var configExams = {
+    apiKey: "AIzaSyDPz7XeF9PcAIruyDDBnQz9nsNewINHVcM",
+    authDomain: "platzi-exams.firebaseapp.com",
+    databaseURL: "https://platzi-exams.firebaseio.com",
+    projectId: "platzi-exams",
+    storageBucket: "platzi-exams.appspot.com",
+    messagingSenderId: "457299712528",
+    appId: "1:457299712528:web:830920b9ae498b43afc895"
 };
-firebase.initializeApp(configMunecas);
+firebase.initializeApp(configExams);
 var dbPlatzi = firebase.database();
-
-//write session
-function writeUserData(folderName, session, dbPlatzi) {
-    dbPlatzi.ref('/session/'+folderName).set(session);
-}
-
-/**** ISLANDS */
-//read Islands
-var examsRef = dbPlatzi.ref("/exams");
-var dbExams;
-examsRef.on('value', function(snapshot) {
-    dbExams = snapshot.val();
-});
-
-//write exam
-function writeExamData(keyIsland, name, dbPlatzi) {
-  dbPlatzi.ref('/exams/'+keyIsland).set({name: name});
-}
 
 
