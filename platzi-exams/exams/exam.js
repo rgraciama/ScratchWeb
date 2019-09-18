@@ -10,11 +10,18 @@ function setExam() {
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
 
-    if (dbExams[examKey][questionKey] !== undefined) {
+    try {
+        if (dbExams[examKey][questionKey] !== undefined) {
+            writeAnswers(examKey, questionKey);
+        }
+    }catch (e) {
+        printAnswers(examKey, questionKey);
+    }
+    /*if (dbExams[examKey][questionKey] !== undefined) {
         writeAnswers(examKey, questionKey);
     } else {
         printAnswers(examKey, questionKey);
-    }
+    }*/
 }
 
 function writeAnswers(examKey, questionKey) {
