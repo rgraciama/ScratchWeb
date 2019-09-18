@@ -5,7 +5,7 @@ var listLibs = [headUrl + "exams/func_exams_v"+version+".js",
                 headUrl + "exams/exam.js",
                 headUrl + "dbFirebase/dbFirebase.js"];
 
-//listLibs.reverse();
+listLibs.reverse();
 function importarScript(nombre, callback) {
     var s = document.createElement("script");
     s.onload = callback;
