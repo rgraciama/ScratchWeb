@@ -21,8 +21,9 @@ function observe2(time) {
 
             var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
 
-            document.body.insertBefore(newButton, buttonRegresar);
+            buttonRegresar.appendChild(newButton);
 
+            newButton.value = "Resultadoooos";
             document.getElementById('results').setAttribute('onclick', 'setResults()');
 
 
