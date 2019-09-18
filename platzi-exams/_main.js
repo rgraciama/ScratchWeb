@@ -15,7 +15,7 @@ function observe2(time) {
 
         }
 
-        if (!$('ul.Questions-list')[0] && btn.onclick === null) {
+        if (!$('ul.Questions-list')[0] && (btn !== undefined && btn.onclick === null)) {
             document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'setExam()');
         } else if ($('ul.Questions-list')[0] && btnResults === null ){
             var newButton = document.createElement("button");
