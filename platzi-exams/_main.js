@@ -7,14 +7,11 @@ var i = 0;
 )();
 
 function observe2(time) {
-    var btn = document.getElementsByClassName('questionNext')[0];
-    var btnResults = document.getElementById("results");
+
     if (i < 10) i++;
     else {
-        if (dbExams !== null) {
-
-        }
-
+        var btn = document.getElementsByClassName('questionNext')[0];
+        var btnResults = document.getElementById("results");
         if (!$('ul.Questions-list')[0] && btn !== undefined) {
             if (btn.onclick === null) {
                 document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'setExam()');
