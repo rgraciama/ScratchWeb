@@ -10,7 +10,7 @@ function setExam() {
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
 
-    if (!dbExams[examKey][questionKey]) {
+    if (dbExams[examKey][questionKey] !== undefined) {
         writeAnswers(examKey, questionKey);
     } else {
         printAnswers(examKey, questionKey);
