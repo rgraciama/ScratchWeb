@@ -13,8 +13,12 @@ function observe2(time) {
         if (dbExams !== null) {
 
         }
-        if (btn.onclick === null) {
+
+        if (!$('ul.Questions-list')[0] && btn.onclick === null) {
             document.getElementById('buttonId').setAttribute('onclick', 'setExam()');
+        } else {
+            document.createElement("button", {id: "results"});
+            document.getElementById('results').setAttribute('onclick', 'setResults()');
         }
     }
     setTimeout(function () {
