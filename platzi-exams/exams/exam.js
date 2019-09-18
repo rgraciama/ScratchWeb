@@ -11,7 +11,12 @@ function setExam() {
 
     $( ".Answer-content" ).each(function( index, answerElement ) {
         var answer=answerElement.textContent.trim();
-        writeAnswerData(examKey, questionKey, answer);
+        if (answerElement.className.includes("is-selected")) {
+            writeAnswerData(examKey, questionKey, answer, "*");
+        } else {
+            writeAnswerData(examKey, questionKey, answer, "-");
+        }
+
     });
 
 
@@ -30,6 +35,6 @@ examsRef.on('value', function(snapshot) {
 });
 
 //write exam
-function writeAnswerData(examKey, questionKey, answer) {
-    dbPlatzi.ref('/exams/'+examKey).child(questionKey).child(answer).set("-");
+function writeAnswerData(examKey, questionKey, answer, value) {
+    dbPlatzi.ref('/exams/'+examKey).child(questionKey).child(answer).set(value);
 }
