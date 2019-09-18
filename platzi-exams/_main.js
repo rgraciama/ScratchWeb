@@ -8,16 +8,31 @@ var i = 0;
 
 function observe2(time) {
     var btn = document.getElementById('buttonId');
+    var btnResults = document.getElementById("results");
     if (i < 10) i++;
     else {
         if (dbExams !== null) {
 
         }
-        if (btn.onclick === null) {
+
+        if (!$('ul.Questions-list')[0] && btn.onclick === null) {
             document.getElementById('buttonId').setAttribute('onclick', 'setExam()');
+        } else if ($('ul.Questions-list')[0] && btnResults === null ){
+            var newButton = document.createElement("button");
+            newButton.setAttribute("id", "results");
+            var newContent = document.createTextNode("Resultados");
+            newButton.appendChild(newContent);
+
+            var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
+
+            buttonRegresar.appendChild(newButton);
+
+            document.getElementById('results').setAttribute('onclick', 'setResults()');
         }
     }
     setTimeout(function () {
         observe2(time);
     }, time);
 }
+
+
