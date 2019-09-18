@@ -52,3 +52,33 @@ examsRef.on('value', function (snapshot) {
 function writeAnswerData(examKey, questionKey, answer, value) {
     dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
 }
+
+/*** Set Results Exams **/
+function setResults() {
+    //check results and give the results
+    var examKeyStr = window.location.href;
+    var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
+
+    $(".QuestionItem-text").each(function (index, questionElement) {
+        var question = questionElement.innerText.trim();
+        if ($('.QuestionItem-text').parent()[index].className.includes("Correct")) {
+            modifyAnswers(examKey, question);
+        } else {
+            modifyAnswers(examKey, question);
+        }
+
+
+    });
+}
+
+function modifyAnswers(examKey, question) {
+    if (dbExams[examKey][question] !== null) {
+        for (var clave in dbExams[examKey][question]){
+            if (dbExams[examKey][question][clave] === '*') {
+                writeAnswerData(examKey, question, clave, 'T');
+            } else if (dbExams[examKey][question][clave] === '-') {
+                writeAnswerData(examKey, question, clave, 'F');
+            }
+        }
+    }
+}
