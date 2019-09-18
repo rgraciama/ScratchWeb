@@ -17,11 +17,15 @@ function observe2(time) {
         if (!$('ul.Questions-list')[0] && btn.onclick === null) {
             document.getElementById('buttonId').setAttribute('onclick', 'setExam()');
         } else {
-            document.createElement("button", {id: "results"});
-            var newButton = document.getElementById('results').setAttribute('onclick', 'setResults()');
+            var newButton = document.createElement("button", {id: "results"});
+
             var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
 
             document.body.insertBefore(newButton, buttonRegresar);
+
+            document.getElementById('results').setAttribute('onclick', 'setResults()');
+
+
         }
     }
     setTimeout(function () {
