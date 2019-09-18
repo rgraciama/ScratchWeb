@@ -12,7 +12,7 @@ function observe2(time) {
     else {
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
-        if (!$('ul.Questions-list')[0] && btn !== undefined) {
+        if (!$('ul.Questions-list') && btn !== undefined) {
             if (btn.onclick === null) {
                 document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'setExam()');
             }
