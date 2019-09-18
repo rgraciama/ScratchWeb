@@ -1,8 +1,7 @@
 var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/platzi-exams/";
 var version = "01";
 
-var listLibs = [headUrl + "exams/func_exams_v"+version+".js"];
-var listLibs = [headUrl + "exams/exams.js"];
+var listLibs = [headUrl + "exams/func_exams_v"+version+".js", headUrl + "exams/exam.js"];
 
 //listLibs.reverse();
 function importarScript(nombre, callback) {

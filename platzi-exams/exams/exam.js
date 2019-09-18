@@ -4,8 +4,10 @@ function setExam() {
     // ====> El valor sea un map dónde la respuesta sea la key y si es cierto o falso el valor.
 
 
-    var examKeyStr = window.location.href;
-    var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
+    //var examKeyStr = window.location.href;
+    //var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
+
+    var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
 
     if (!dbExams[examKey][questionKey]) {
