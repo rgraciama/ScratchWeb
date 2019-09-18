@@ -5,7 +5,7 @@ var listLibs = [headUrl + "exams/func_exams_v"+version+".js",
                 headUrl + "exams/exam.js",
                 headUrl + "dbFirebase/dbFirebase.js",
                 "https://www.gstatic.com/firebasejs/5.9.0/firebase.js",
-                "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"];
+                "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"];
 
 listLibs.reverse();
 function importarScript(nombre, callback) {
