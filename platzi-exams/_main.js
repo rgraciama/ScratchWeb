@@ -12,11 +12,11 @@ function observe2(time) {
     else {
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
-        if (!$('ul.Questions-list') && btn !== undefined) {
+        if ($('ul.Questions-list').length === 0 && btn !== undefined) {
             if (btn.onclick === null) {
                 document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'setExam()');
             }
-        } else if ($('ul.Questions-list') && btnResults === null ){
+        } else if ($('ul.Questions-list').length > 0 && btnResults === null ){
             var newButton = document.createElement("button");
             newButton.setAttribute("id", "results");
             var newContent = document.createTextNode("Resultados");
