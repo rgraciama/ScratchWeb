@@ -10,6 +10,10 @@ function observe2(time) {
 
     if (i < 10) i++;
     else {
+        if (dbExams !== null) {
+            firebase.initializeApp(configExams);
+            dbPlatzi = firebase.database();
+        }
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
         if ($('ul.Questions-list').length === 0 && btn !== undefined) {
