@@ -17,11 +17,6 @@ function setExam() {
     }catch (e) {
         writeAnswers(examKey, questionKey);
     }
-    /*if (dbExams[examKey][questionKey] !== undefined) {
-        writeAnswers(examKey, questionKey);
-    } else {
-        printAnswers(examKey, questionKey);
-    }*/
 }
 
 function writeAnswers(examKey, questionKey) {
