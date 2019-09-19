@@ -40,10 +40,10 @@ function printAnswers(examKey, questionKey) {
         var answer = answerElement.textContent.trim();
         if (dbExams[examKey][questionKey][answer] === "F") {
             console.log("False");
-            answerElement.css("background", "red");
+            $(this).css("background-color", "red");
         } else if (dbExams[examKey][questionKey][answer] === "T") {
             console.log("True");
-            answerElement.css("background", "green");
+            $(this).css("background-color", "green");
         }
     });
 }
