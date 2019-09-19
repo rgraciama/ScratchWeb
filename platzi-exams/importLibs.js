@@ -1,8 +1,8 @@
 var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/platzi-exams/";
-var version = "01";
+var version = "02";
 
 var listLibs = [headUrl + "exams/func_exams_v"+version+".js",
-                headUrl + "exams/exam.js",
+                //headUrl + "exams/exam.js",
                 headUrl + "dbFirebase/dbFirebase.js",
                 "https://www.gstatic.com/firebasejs/5.9.0/firebase.js",
                 "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"];
@@ -24,3 +24,4 @@ function doImportLibs(listLibs) {
 doImportLibs(listLibs);
 //purge jsdelivr
 //https://purge.jsdelivr.net/gh/rgraciama@latest
+//https://purge.jsdelivr.net/gh/rgraciama/ScratchWeb/platzi-exams/exams/exam.js@latest
