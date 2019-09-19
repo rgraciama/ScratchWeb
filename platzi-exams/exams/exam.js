@@ -11,11 +11,11 @@ function setExam() {
     var questionKey = document.getElementById('question').innerText;
 
     try {
-        if (dbExams[examKey][questionKey] !== undefined) {
-            writeAnswers(examKey, questionKey);
+        if (dbExams[examKey][questionKey]) {
+            printAnswers(examKey, questionKey);
         }
     }catch (e) {
-        printAnswers(examKey, questionKey);
+        writeAnswers(examKey, questionKey);
     }
     /*if (dbExams[examKey][questionKey] !== undefined) {
         writeAnswers(examKey, questionKey);
