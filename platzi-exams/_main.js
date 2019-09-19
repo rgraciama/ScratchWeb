@@ -8,12 +8,8 @@ var i = 0;
 
 function observe2(time) {
 
-    if (i < 10) i++;
+    if (i < 10 && typeof(firebase) === "undefined") i++;
     else {
-        if (dbExams !== null) {
-            firebase.initializeApp(configExams);
-            dbPlatzi = firebase.database();
-        }
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
         if ($('ul.Questions-list').length === 0 && btn !== undefined) {
