@@ -38,13 +38,18 @@ function writeAnswers(examKey, questionKey) {
 function printAnswers(examKey, questionKey) {
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
-        if (dbExams[examKey][questionKey][answer] === "F") {
-            console.log("False");
-            $(this).css("background-color", "red");
-        } else if (dbExams[examKey][questionKey][answer] === "T") {
-            console.log("True");
-            $(this).css("background-color", "green");
+        try {
+            if (dbExams[examKey][questionKey][answer] === "F") {
+                console.log("False");
+                $(this).css("background-color", "red");
+            } else if (dbExams[examKey][questionKey][answer] === "T") {
+                console.log("True");
+                $(this).css("background-color", "green");
+            }
+        } catch (e) {
+            Console.log("No se encuentra: "+ examKey + ", " +questionKey+", "+ answer);
         }
+
     });
 }
 
