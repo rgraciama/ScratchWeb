@@ -23,10 +23,14 @@ function writeAnswers(examKey, questionKey) {
 
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
-        if (answerElement.className.includes("is-selected")) {
+        if ($('.Answer')[index].className.includes("is-selected")) {
+
             writeAnswerData(examKey, questionKey, answer, "*");
+
         } else {
+
             writeAnswerData(examKey, questionKey, answer, "-");
+
         }
     });
 }
