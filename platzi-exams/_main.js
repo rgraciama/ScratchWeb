@@ -16,9 +16,6 @@ function observe2(time) {
             if (btn.onclick === null) {
                 document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'setExam()');
             }
-            // if ($("#write-question").val()==="Y") {
-            //     setExam();
-            // }
         } else if ($('ul.Questions-list').length > 0 && btnResults === null){
             var newButton = document.createElement("button");
             newButton.setAttribute("id", "results");
@@ -28,10 +25,6 @@ function observe2(time) {
             var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
             buttonRegresar.appendChild(newButton);
             document.getElementById('results').setAttribute('onclick', 'setResults()');
-            //
-            // if ($("#write-result").val()==="Y") {
-            //     setResults();
-            // }
         }
     }
     setTimeout(function () {
