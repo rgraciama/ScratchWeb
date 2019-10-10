@@ -32,7 +32,6 @@ function observe2(time) {
             var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
             buttonRegresar.appendChild(newButton);
             document.getElementById('results').setAttribute('onclick', 'triggerTampermonkeyResult()');
-
         }
     }
     setTimeout(function () {
