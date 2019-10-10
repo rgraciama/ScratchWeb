@@ -13,6 +13,8 @@ function setExam() {
     try {
         if (dbExams[examKey][questionKey]) {
             printAnswers(examKey, questionKey);
+        } else {
+            writeAnswers(examKey, questionKey);
         }
     }catch (e) {
         writeAnswers(examKey, questionKey);
