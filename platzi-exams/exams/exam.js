@@ -17,6 +17,7 @@ function setExam() {
     }catch (e) {
         writeAnswers(examKey, questionKey);
     }
+    $('#write-question').val("");
 }
 
 function writeAnswers(examKey, questionKey) {
@@ -82,6 +83,8 @@ function setResults() {
 
 
     });
+
+    $('#write-result').val("");
 }
 
 function modifyAnswers(examKey, question) {
