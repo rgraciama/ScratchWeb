@@ -12,14 +12,14 @@ function observe2(time) {
     else {
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
-        if ($('ul.Questions-list').length === 0 && btn !== undefined && $("#write-question").val()!=="") {
+        if ($('ul.Questions-list').length === 0 && btn !== undefined) {
             if (btn.onclick === null) {
-                document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'triggerTampermonkeyQuestion()');
+                document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'setExam()');
             }
-            if ($("#write-question").val()==="Y") {
-                setExam();
-            }
-        } else if ($('ul.Questions-list').length > 0 && btnResults === null && $("#write-question").val()!==""){
+            // if ($("#write-question").val()==="Y") {
+            //     setExam();
+            // }
+        } else if ($('ul.Questions-list').length > 0 && btnResults === null){
             var newButton = document.createElement("button");
             newButton.setAttribute("id", "results");
             var newContent = document.createTextNode("Resultados");
@@ -27,11 +27,11 @@ function observe2(time) {
 
             var buttonRegresar = document.getElementsByClassName('Questions-btn')[0];
             buttonRegresar.appendChild(newButton);
-            document.getElementById('results').setAttribute('onclick', 'triggerTampermonkeyResult()');
-
-            if ($("#write-result").val()==="Y") {
-                setResults();
-            }
+            document.getElementById('results').setAttribute('onclick', 'setResults()');
+            //
+            // if ($("#write-result").val()==="Y") {
+            //     setResults();
+            // }
         }
     }
     setTimeout(function () {
