@@ -4,6 +4,8 @@ $("body").append("<input id='write-result' type='hidden' value=''/>");
 
 function triggerTampermonkeyQuestion() {
     $('#write-question').val("Y");
+    //To prepare next question
+    $('#get-question').val("");
 }
 
 
