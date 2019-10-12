@@ -1,5 +1,5 @@
 var headUrl = "https://cdn.jsdelivr.net/gh/rgraciama/ScratchWeb/platzi-exams/";
-var version = "03";
+var version = "04";
 
 var listLibs = [headUrl + "exams/func_exams_v"+version+".js",
                 "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"];
