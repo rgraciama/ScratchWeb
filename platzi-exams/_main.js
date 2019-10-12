@@ -18,7 +18,7 @@ function observe2(time) {
         if (isWriteResult()) {
             setResults();
         }
-        if (isGetQuestion()) {
+        if (isGetQuestion() && dbExams !== undefined) {
             getQuestion();
         }
         if ($('ul.Questions-list').length === 0 && btn !== undefined) {
