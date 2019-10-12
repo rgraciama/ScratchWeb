@@ -16,7 +16,7 @@ function setExam() {
         } else {
             writeAnswers(examKey, questionKey);
         }
-    }catch (e) {
+    } catch (e) {
         writeAnswers(examKey, questionKey);
     }
     $('#write-question').val("");
@@ -50,7 +50,7 @@ function printAnswers(examKey, questionKey) {
                 $(this).css("background-color", "green");
             }
         } catch (e) {
-            Console.log("No se encuentra: "+ examKey + ", " +questionKey+", "+ answer);
+            Console.log("No se encuentra: " + examKey + ", " + questionKey + ", " + answer);
         }
 
     });
@@ -90,14 +90,18 @@ function setResults() {
 }
 
 function modifyAnswers(examKey, question) {
-    if (dbExams[examKey][question] !== null) {
-        for (var clave in dbExams[examKey][question]){
-            if (dbExams[examKey][question][clave] === '*') {
-                writeAnswerData(examKey, question, clave, 'T');
-            } else if (dbExams[examKey][question][clave] === '-') {
-                writeAnswerData(examKey, question, clave, 'F');
+    try {
+        if (dbExams[examKey][question] !== null) {
+            for (var clave in dbExams[examKey][question]) {
+                if (dbExams[examKey][question][clave] === '*') {
+                    writeAnswerData(examKey, question, clave, 'T');
+                } else if (dbExams[examKey][question][clave] === '-') {
+                    writeAnswerData(examKey, question, clave, 'F');
+                }
             }
         }
+    } catch (e) {
+        console.log("It does not exist \""+examKey+"\", neither the question \""+ question+"\"");
     }
 }
 
