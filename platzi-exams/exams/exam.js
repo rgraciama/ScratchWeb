@@ -110,6 +110,7 @@ function modifyAnswers(examKey, question, correct) {
 
         }
     } catch (e) {
+        console.log("Error: "+ e);
         console.log("ExamKey: " + examKey);
         console.log("Question: " + question);
     }
