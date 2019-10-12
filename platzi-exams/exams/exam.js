@@ -99,7 +99,7 @@ function modifyAnswers(examKey, question, correct) {
         if (dbExams[examKey][question] !== null) {
             if (checkQuestionHasCorrectAnswer(examKey, question) && correct) {
                 writeResultsOnAnswer(examKey, question);
-            } else if (!checkQuestionHasCorrectAnswer(examKey, questions) && !correct) {
+            } else if (!checkQuestionHasCorrectAnswer(examKey, question) && !correct) {
                 writeResultsOnAnswerNoCorrect(examKey, question);
             } else {
                 console.log("Condición extraña, es posible que hayas acertado, pero el programa no sepa que respuesta pusiste");
