@@ -1,3 +1,11 @@
+/**** EXAMS */
+//read Exams
+var examsRef = dbPlatzi.ref("/exams");
+var dbExams;
+examsRef.on('value', function (snapshot) {
+    dbExams = snapshot.val();
+});
+
 function setExam() {
     // la idea es un map donde la key sea el examen.
     // ==> Después el valor sea un map dónde la pregunta sea la key.
@@ -55,14 +63,6 @@ function printAnswers(examKey, questionKey) {
 
     });
 }
-
-/**** EXAMS */
-//read Exams
-var examsRef = dbPlatzi.ref("/exams");
-var dbExams;
-examsRef.on('value', function (snapshot) {
-    dbExams = snapshot.val();
-});
 
 //write exam
 function writeAnswerData(examKey, questionKey, answer, value) {
@@ -144,13 +144,13 @@ function getQuestion() {
     try {
         if (dbExams[examKey][questionKey]) {
             printAnswers(examKey, questionKey);
+            $('#get-question').val("Y");
         } else {
             $('#get-question').val("N");
         }
     } catch (e) {
         $('#get-question').val("N");
     }
-    $('#get-question').val("Y");
 }
 
 //Añado comment para ver si actualiza el jsdelivr
