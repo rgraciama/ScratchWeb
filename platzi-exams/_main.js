@@ -8,14 +8,14 @@ var i = 0;
 
 function observe2(time) {
 
-    if (i < 10 && typeof(dbPlatzi) === "undefined") i++;
+    if (i < 10 && typeof (dbPlatzi) === "undefined") i++;
     else {
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
-        if ($('#write-question')!==null && $('#write-question').val()!=="" && $('#write-question').val()!==undefined) {
+        if (isWriteQuestion()) {
             setExam();
         }
-        if ($('#write-question')!==null && $('#write-result').val()!=="" && $('#write-result').val()!==undefined) {
+        if (isWriteResult()) {
             setResults();
         }
         if ($('ul.Questions-list').length === 0 && btn !== undefined) {
@@ -23,7 +23,7 @@ function observe2(time) {
                 document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'triggerTampermonkeyQuestion()');
             }
 
-        } else if ($('ul.Questions-list').length > 0 && btnResults === null){
+        } else if ($('ul.Questions-list').length > 0 && btnResults === null) {
             var newButton = document.createElement("button");
             newButton.setAttribute("id", "results");
             var newContent = document.createTextNode("Resultados");
@@ -39,4 +39,17 @@ function observe2(time) {
     }, time);
 }
 
+function isWriteQuestion() {
+    return window.location.href.includes("platzi.com/clases/examen/") &&
+        $('#write-question') !== null &&
+        $('#write-question').val() !== "" &&
+        $('#write-question').val() !== undefined;
+}
+
+function isWriteResult() {
+    return window.location.href.includes("platzi.com/clases/exames/") &&
+        $('#write-result') !== null &&
+        $('#write-result').val() !== "" &&
+        $('#write-result').val() !== undefined;
+}
 
