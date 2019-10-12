@@ -7,6 +7,7 @@ examsRef.on('value', function (snapshot) {
 });
 
 function iniDbExams() {
+    examsRef = dbPlatzi.ref("/exams");
     dbPlatzi.ref("/exams").on('value', function (snapshot) {
         dbExams = snapshot.val();
     });
