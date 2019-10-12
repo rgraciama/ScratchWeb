@@ -79,9 +79,9 @@ function setResults() {
     $(".QuestionItem-text").each(function (index, questionElement) {
         var question = questionElement.innerText.trim();
         if ($('.QuestionItem-text').parent()[index].className.includes("Correct")) {
-            modifyAnswers(examKey, question);
+            modifyAnswers(examKey, question, true);
         } else {
-            modifyAnswers(examKey, question);
+            modifyAnswers(examKey, question, false);
         }
 
 
@@ -90,20 +90,52 @@ function setResults() {
     $('#write-result').val("");
 }
 
-function modifyAnswers(examKey, question) {
+function modifyAnswers(examKey, question, correct) {
     try {
         if (dbExams[examKey][question] !== null) {
-            for (var clave in dbExams[examKey][question]) {
-                if (dbExams[examKey][question][clave] === '*') {
-                    writeAnswerData(examKey, question, clave, 'T');
-                } else if (dbExams[examKey][question][clave] === '-') {
-                    writeAnswerData(examKey, question, clave, 'F');
-                }
+            if (checkQuestionHasCorrectAnswer() && correct) {
+                writeResultsOnAnswer(examKey, question);
+            } else if (!checkQuestionHasCorrectAnswer() && !correct) {
+                writeResultsOnAnswerNoCorrect(examKey, question);
+            } else {
+                console.log("Condición extraña, es posible que hayas acertado, pero el programa no sepa que respuesta pusiste");
+                console.log("ExamKey: "+examKey);
+                console.log("Question: "+question);
             }
+
+
         }
     } catch (e) {
-        console.log("It does not exist \""+examKey+"\", neither the question \""+ question+"\"");
+        console.log("ExamKey: " + examKey);
+        console.log("Question: " + question);
     }
 }
 
+
+function checkQuestionHasCorrectAnswer(examKey, question) {
+    for (var clave in dbExams[examKey][question]) {
+        if (dbExams[examKey][question][clave] === '*') return true;
+    }
+    return false;
+}
+
+function writeResultsOnAnswer(examKey, question) {
+    for (var clave in dbExams[examKey][question]) {
+        if (dbExams[examKey][question][clave] === '*') {
+            writeAnswerData(examKey, question, clave, 'T');
+        } else if (dbExams[examKey][question][clave] === '-') {
+            writeAnswerData(examKey, question, clave, 'F');
+        }
+    }
+
+}
+
+function writeResultsOnAnswerNoCorrect(examKey, question) {
+    for (var clave in dbExams[examKey][question]) {
+        if (dbExams[examKey][question][clave] === '*') {
+            writeAnswerData(examKey, question, clave, 'F');
+        }
+    }
+
+}
 //Añado comment para ver si actualiza el jsdelivr
