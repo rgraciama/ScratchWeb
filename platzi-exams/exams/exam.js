@@ -9,7 +9,7 @@ function setExam() {
 
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
-
+    //TODO printAnswers en otro lado
     try {
         if (dbExams[examKey][questionKey]) {
             printAnswers(examKey, questionKey);
@@ -72,8 +72,6 @@ function writeAnswerData(examKey, questionKey, answer, value) {
 /*** Set Results Exams **/
 function setResults() {
     //check results and give the results
-    // var examKeyStr = window.location.href;
-    // var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
     var examKey = $('.ResultInfo-careerName')[0].innerText;
 
     $(".QuestionItem-text").each(function (index, questionElement) {
@@ -138,4 +136,21 @@ function writeResultsOnAnswerNoCorrect(examKey, question) {
     }
 
 }
+
+function getQuestion() {
+    var examKey = $('.Course')[0].innerText;
+    var questionKey = document.getElementById('question').innerText;
+    //TODO printAnswers en otro lado
+    try {
+        if (dbExams[examKey][questionKey]) {
+            printAnswers(examKey, questionKey);
+        } else {
+            $('#get-question').val("N");
+        }
+    } catch (e) {
+        $('#get-question').val("N");
+    }
+    $('#get-question').val("Y");
+}
+
 //Añado comment para ver si actualiza el jsdelivr

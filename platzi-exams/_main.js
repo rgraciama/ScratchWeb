@@ -18,6 +18,9 @@ function observe2(time) {
         if (isWriteResult()) {
             setResults();
         }
+        if (isGetQuestion()) {
+            getQuestion();
+        }
         if ($('ul.Questions-list').length === 0 && btn !== undefined) {
             if (btn.onclick === null) {
                 document.getElementsByClassName('questionNext')[0].setAttribute('onclick', 'triggerTampermonkeyQuestion()');
@@ -44,6 +47,11 @@ function isWriteQuestion() {
         $('#write-question') !== null &&
         $('#write-question').val() !== "" &&
         $('#write-question').val() !== undefined;
+}
+
+function isGetQuestion() {
+    return window.location.href.includes("platzi.com/clases/examen/") &&
+        $('#get-question').val() === "";
 }
 
 function isWriteResult() {
