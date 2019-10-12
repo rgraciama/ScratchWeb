@@ -27,7 +27,8 @@ function setExam() {
     //TODO printAnswers en otro lado
     try {
         if (dbExams[examKey][questionKey]) {
-            printAnswers(examKey, questionKey);
+            console.log("Ya existe: "+examKey+", "+questionKey);
+            //printAnswers(examKey, questionKey);
         } else {
             writeAnswers(examKey, questionKey);
         }
