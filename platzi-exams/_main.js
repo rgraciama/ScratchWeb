@@ -8,7 +8,7 @@ var i = 0;
 
 function observe2(time) {
 
-    if (i < 10 && typeof (dbPlatzi) === "undefined") i++;
+    if (i < 10 && typeof (dbPlatzi) === "undefined" && typeof(dbExams) === "undefined") i++;
     else {
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
