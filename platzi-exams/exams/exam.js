@@ -6,6 +6,12 @@ examsRef.on('value', function (snapshot) {
     dbExams = snapshot.val();
 });
 
+function iniDbExams() {
+    dbPlatzi.ref("/exams").on('value', function (snapshot) {
+        dbExams = snapshot.val();
+    });
+}
+
 function setExam() {
     // la idea es un map donde la key sea el examen.
     // ==> Después el valor sea un map dónde la pregunta sea la key.
@@ -138,6 +144,10 @@ function writeResultsOnAnswerNoCorrect(examKey, question) {
 }
 
 function getQuestion() {
+
+    if(dbExams === undefined) {
+        iniDbExams();
+    }
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
     //TODO printAnswers en otro lado
