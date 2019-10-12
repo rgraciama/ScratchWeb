@@ -85,7 +85,6 @@ function writeAnswerData(examKey, questionKey, answer, value) {
         console.log("No se puede guardar, error: "+ e);
         console.log("exam: "+examKey);
         console.log("question: "+questionKey);
-
     }
 }
 
