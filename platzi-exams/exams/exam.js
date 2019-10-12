@@ -24,7 +24,12 @@ function setExam() {
 
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
+
+    //TODO cambiar elementos que no acepta firebase
+    questionKey = questionKey.replace("[.,$\]\[]");
+    examKey = examKey.replace("[.,$\]\[]");
     //TODO printAnswers en otro lado
+    //[.|,|$|\]|\[]
     try {
         if (dbExams[examKey][questionKey]) {
             console.log("Ya existe: "+examKey+", "+questionKey);
@@ -82,8 +87,12 @@ function setResults() {
     //check results and give the results
     var examKey = $('.ResultInfo-careerName')[0].innerText;
 
+
+    examKey = examKey.replace("[.,$\]\[]");
+
     $(".QuestionItem-text").each(function (index, questionElement) {
         var question = questionElement.innerText.trim();
+        question = question.replace("[.,$\]\[]");
         if ($('.QuestionItem-text').parent()[index].className.includes("Correct")) {
             modifyAnswers(examKey, question, true);
         } else {
