@@ -12,10 +12,10 @@ function observe2(time) {
     else {
         var btn = document.getElementsByClassName('questionNext')[0];
         var btnResults = document.getElementById("results");
-        if ($('#write-question').val()!=="" && $('#write-question').val()!==undefined) {
+        if ($('#write-question')!==null && $('#write-question').val()!=="" && $('#write-question').val()!==undefined) {
             setExam();
         }
-        if ($('#write-result').val()!=="" && $('#write-result').val()!==undefined) {
+        if ($('#write-question')!==null && $('#write-result').val()!=="" && $('#write-result').val()!==undefined) {
             setResults();
         }
         if ($('ul.Questions-list').length === 0 && btn !== undefined) {
