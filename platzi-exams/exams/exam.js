@@ -72,8 +72,9 @@ function writeAnswerData(examKey, questionKey, answer, value) {
 /*** Set Results Exams **/
 function setResults() {
     //check results and give the results
-    var examKeyStr = window.location.href;
-    var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
+    // var examKeyStr = window.location.href;
+    // var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
+    var examKey = $('.ResultInfo-careerName')[0].innerText;
 
     $(".QuestionItem-text").each(function (index, questionElement) {
         var question = questionElement.innerText.trim();
