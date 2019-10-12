@@ -47,7 +47,7 @@ function isWriteQuestion() {
 }
 
 function isWriteResult() {
-    return window.location.href.includes("platzi.com/clases/exames/") &&
+    return window.location.href.includes("platzi.com/clases/exams/") &&
         $('#write-result') !== null &&
         $('#write-result').val() !== "" &&
         $('#write-result').val() !== undefined;
