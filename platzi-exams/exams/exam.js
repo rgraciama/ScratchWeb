@@ -79,7 +79,14 @@ function printAnswers(examKey, questionKey) {
 
 //write exam
 function writeAnswerData(examKey, questionKey, answer, value) {
-    dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
+    try {
+        dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
+    } catch (e) {
+        console.log("No se puede guardar, error: "+ e);
+        console.log("exam: "+examKey);
+        console.log("question: "+questionKey);
+
+    }
 }
 
 /*** Set Results Exams **/
