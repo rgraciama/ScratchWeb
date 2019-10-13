@@ -197,7 +197,7 @@ function getQuestion() {
     examKey = parseValueToSaveInFirebase(examKey);
     var questionKey = document.getElementById('question').innerText;
     questionKey = parseValueToSaveInFirebase(questionKey);
-    if (prevQuestion !== questionKey && $(".Answer-content").length > 0) {
+    if (prevQuestion !== questionKey && $(".Answer-content").length > 1) {
         try {
             if (dbExams[examKey][questionKey]) {
                 printAnswers(examKey, questionKey);
