@@ -66,6 +66,7 @@ function writeAnswersOnlySelected(examKey, questionKey) {
 
 function printAnswers(examKey, questionKey) {
 
+    //TODO esperar a la nueva pregunta para pintarla
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
         answer = parseValueToSaveInFirebase(answer);
@@ -196,7 +197,7 @@ function getQuestion() {
     examKey = parseValueToSaveInFirebase(examKey);
     var questionKey = document.getElementById('question').innerText;
     questionKey = parseValueToSaveInFirebase(questionKey);
-    if (prevQuestion !== questionKey) {
+    if (prevQuestion !== questionKey && $(".Answer-content").length > 0) {
         try {
             if (dbExams[examKey][questionKey]) {
                 printAnswers(examKey, questionKey);
