@@ -57,6 +57,7 @@ function writeAnswers(examKey, questionKey) {
 function writeAnswersOnlySelected(examKey, questionKey) {
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
+        answer = parseValueToSaveInFirebase(answer);
         if ($('.Answer')[index].className.includes("is-selected")) {
             writeAnswerData(examKey, questionKey, answer, "*");
         }
@@ -68,6 +69,7 @@ function printAnswers(examKey, questionKey) {
     //TODO la pregunta no está pintada
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
+        anser = parseValueToSaveInFirebase(answer);
         try {
             if (dbExams[examKey][questionKey][answer] === "F") {
                 $(this).css("background-color", "#fcafa4") //red
@@ -194,7 +196,9 @@ function getQuestion() {
     }
 
     var examKey = $('.Course')[0].innerText;
+    examKey = parseValueToSaveInFirebase(examKey);
     var questionKey = document.getElementById('question').innerText;
+    questionKey = parseValueToSaveInFirebase(questionKey);
     if (prevQuestion !== questionKey) {
         try {
             if (dbExams[examKey][questionKey]) {
