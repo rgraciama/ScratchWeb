@@ -21,8 +21,8 @@ function setExam() {
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
 
-    questionKey = questionKey.replace(/[.,$\]\[]/,"_");
-    examKey = examKey.replace(/[.,$\]\[]/,"_");
+    questionKey = questionKey.replace(/[.,$\]\[]/g,"_");
+    examKey = examKey.replace(/[.,$\]\[]/g,"_");
 
     try {
         if (dbExams[examKey][questionKey]) {
@@ -100,11 +100,11 @@ function setResults() {
     var examKey = $('.ResultInfo-careerName')[0].innerText;
 
 
-    examKey = examKey.replace(/[.,$\]\[]/, "_");
+    examKey = examKey.replace(/[.,$\]\[]/g, "_");
 
     $(".QuestionItem-text").each(function (index, questionElement) {
         var question = questionElement.innerText.trim();
-        question = question.replace(/[.,$\]\[]/,"_");
+        question = question.replace(/[.,$\]\[]/g,"_");
         if ($('.QuestionItem-text').parent()[index].className.includes("Correct")) {
             modifyAnswers(examKey, question, true);
         } else {
