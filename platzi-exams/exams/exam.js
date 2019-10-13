@@ -28,7 +28,7 @@ function setExam() {
     try {
         if (dbExams[examKey][questionKey]) {
             console.log("Ya existe: " + examKey + ", " + questionKey);
-            //printAnswers(examKey, questionKey);p
+            writeAnswersOnlySelected(examKey, questionKey);
         } else {
             writeAnswers(examKey, questionKey);
         }
@@ -50,6 +50,15 @@ function writeAnswers(examKey, questionKey) {
 
             writeAnswerData(examKey, questionKey, answer, "-");
 
+        }
+    });
+}
+
+function writeAnswersOnlySelected(examKey, questionKey) {
+    $(".Answer-content").each(function (index, answerElement) {
+        var answer = answerElement.textContent.trim();
+        if ($('.Answer')[index].className.includes("is-selected")) {
+            writeAnswerData(examKey, questionKey, answer, "*");
         }
     });
 }
