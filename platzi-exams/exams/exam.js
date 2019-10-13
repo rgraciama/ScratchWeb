@@ -66,7 +66,6 @@ function writeAnswersOnlySelected(examKey, questionKey) {
 
 function printAnswers(examKey, questionKey) {
 
-    //TODO la pregunta no está pintada
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
         answer = parseValueToSaveInFirebase(answer);
@@ -91,8 +90,6 @@ function writeAnswerData(examKey, questionKey, answer, value) {
         console.log("No se puede guardar, error: " + e);
         console.log("exam: " + examKey);
         console.log("question: " + questionKey);
-        //TODO Probar reduciendo la pregunta
-        //no es buena opción al hacer get y set del nombre mejor usar método parseValueToSaveInFirebase(str)
     }
 }
 
