@@ -42,6 +42,7 @@ function writeAnswers(examKey, questionKey) {
 
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
+        answer = parseValueToSaveInFirebase(answer);
         if ($('.Answer')[index].className.includes("is-selected")) {
 
             writeAnswerData(examKey, questionKey, answer, "*");
