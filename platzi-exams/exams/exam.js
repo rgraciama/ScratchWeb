@@ -18,14 +18,9 @@ function setExam() {
     // ==> Después el valor sea un map dónde la pregunta sea la key.
     // ====> El valor sea un map dónde la respuesta sea la key y si es cierto o falso el valor.
 
-
-    //var examKeyStr = window.location.href;
-    //var examKey = examKeyStr.replace(".", "_").replace(/\//g, "_");
-
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
 
-    //TODO cambiar elementos que no acepta firebase
     questionKey = questionKey.replace("[.,$\]\[]");
     examKey = examKey.replace("[.,$\]\[]");
     //TODO printAnswers en otro lado
@@ -33,7 +28,7 @@ function setExam() {
     try {
         if (dbExams[examKey][questionKey]) {
             console.log("Ya existe: "+examKey+", "+questionKey);
-            //printAnswers(examKey, questionKey);
+            //printAnswers(examKey, questionKey);p
         } else {
             writeAnswers(examKey, questionKey);
         }
@@ -85,6 +80,8 @@ function writeAnswerData(examKey, questionKey, answer, value) {
         console.log("No se puede guardar, error: "+ e);
         console.log("exam: "+examKey);
         console.log("question: "+questionKey);
+        //TODO Probar reduciendo la pregunta
+        //dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
     }
 }
 
