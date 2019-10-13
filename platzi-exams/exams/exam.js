@@ -69,7 +69,7 @@ function printAnswers(examKey, questionKey) {
     //TODO la pregunta no está pintada
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
-        anser = parseValueToSaveInFirebase(answer);
+        answer = parseValueToSaveInFirebase(answer);
         try {
             if (dbExams[examKey][questionKey][answer] === "F") {
                 $(this).css("background-color", "#fcafa4") //red
