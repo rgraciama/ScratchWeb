@@ -23,11 +23,11 @@ function setExam() {
 
     questionKey = questionKey.replace("[.,$\]\[]");
     examKey = examKey.replace("[.,$\]\[]");
-    //TODO printAnswers en otro lado
-    //[.|,|$|\]|\[]
+
     try {
         if (dbExams[examKey][questionKey]) {
             console.log("Ya existe: " + examKey + ", " + questionKey);
+            if (checkIfExamHasAstersisk(examKey, questionKey)) resetExamQuestions(examKey, questionKey);
             writeAnswersOnlySelected(examKey, questionKey);
         } else {
             writeAnswers(examKey, questionKey);
@@ -122,7 +122,7 @@ function modifyAnswers(examKey, question, correct) {
         if (dbExams[examKey][question] !== null) {
             if (checkQuestionHasCorrectAnswer(examKey, question) && correct) {
                 writeResultsOnAnswer(examKey, question);
-            } else if (!checkQuestionHasCorrectAnswer(examKey, question) && !correct) {
+            } else if (!correct) {
                 writeResultsOnAnswerNoCorrect(examKey, question);
             } else {
                 console.log("Condición extraña, es posible que hayas acertado, pero el programa no sepa que respuesta pusiste");
@@ -165,6 +165,21 @@ function writeResultsOnAnswerNoCorrect(examKey, question) {
         }
     }
 
+}
+
+function checkIfExamHasAstersisk(exam, questionKey) {
+    for (var clave in dbExams[examKey][question]) {
+        if (dbExams[examKey][question][clave] === '*') {
+            return true;
+        }
+    }
+    return false;
+}
+
+function resetExamQuestions(examKey, questionKey) {
+    for (var clave in dbExams[examKey][question]) {
+        writeAnswerData(examKey, questionKey, answer, "-");
+    }
 }
 
 var prevQuestion;
