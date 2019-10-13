@@ -60,10 +60,10 @@ function printAnswers(examKey, questionKey) {
         try {
             if (dbExams[examKey][questionKey][answer] === "F") {
                 console.log("False");
-                $(this).css("background-color", "fcafa4") //red
+                $(this).css("background-color", "#fcafa4") //red
             } else if (dbExams[examKey][questionKey][answer] === "T") {
                 console.log("True");
-                $(this).css("background-color", "00ff2e"); //green
+                $(this).css("background-color", "#00ff2e"); //green
             }
         } catch (e) {
             Console.log("No se encuentra: " + examKey + ", " + questionKey + ", " + answer);
