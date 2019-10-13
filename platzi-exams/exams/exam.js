@@ -27,7 +27,7 @@ function setExam() {
     //[.|,|$|\]|\[]
     try {
         if (dbExams[examKey][questionKey]) {
-            console.log("Ya existe: "+examKey+", "+questionKey);
+            console.log("Ya existe: " + examKey + ", " + questionKey);
             //printAnswers(examKey, questionKey);p
         } else {
             writeAnswers(examKey, questionKey);
@@ -55,15 +55,15 @@ function writeAnswers(examKey, questionKey) {
 }
 
 function printAnswers(examKey, questionKey) {
+
+    //TODO la pregunta no está pintada
     $(".Answer-content").each(function (index, answerElement) {
         var answer = answerElement.textContent.trim();
         try {
             if (dbExams[examKey][questionKey][answer] === "F") {
-                console.log("False");
                 $(this).css("background-color", "#fcafa4") //red
             } else if (dbExams[examKey][questionKey][answer] === "T") {
-                console.log("True");
-                $(this).css("background-color", "#00ff2e"); //green
+                $(this).css("background-color", "#00ff8c"); //green
             }
         } catch (e) {
             Console.log("No se encuentra: " + examKey + ", " + questionKey + ", " + answer);
@@ -77,9 +77,9 @@ function writeAnswerData(examKey, questionKey, answer, value) {
     try {
         dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
     } catch (e) {
-        console.log("No se puede guardar, error: "+ e);
-        console.log("exam: "+examKey);
-        console.log("question: "+questionKey);
+        console.log("No se puede guardar, error: " + e);
+        console.log("exam: " + examKey);
+        console.log("question: " + questionKey);
         //TODO Probar reduciendo la pregunta
         //dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
     }
@@ -117,14 +117,14 @@ function modifyAnswers(examKey, question, correct) {
                 writeResultsOnAnswerNoCorrect(examKey, question);
             } else {
                 console.log("Condición extraña, es posible que hayas acertado, pero el programa no sepa que respuesta pusiste");
-                console.log("ExamKey: "+examKey);
-                console.log("Question: "+question);
+                console.log("ExamKey: " + examKey);
+                console.log("Question: " + question);
             }
 
 
         }
     } catch (e) {
-        console.log("Error: "+ e);
+        console.log("Error: " + e);
         console.log("ExamKey: " + examKey);
         console.log("Question: " + question);
     }
@@ -158,23 +158,27 @@ function writeResultsOnAnswerNoCorrect(examKey, question) {
 
 }
 
+var prevQuestion;
 function getQuestion() {
 
-    if(dbExams === undefined) {
+    if (dbExams === undefined) {
         iniDbExams();
     }
+
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
-    //TODO printAnswers en otro lado
-    try {
-        if (dbExams[examKey][questionKey]) {
-            printAnswers(examKey, questionKey);
-            $('#get-question').val("Y");
-        } else {
+    if (prevQuestion !== questionKey) {
+        try {
+            if (dbExams[examKey][questionKey]) {
+                printAnswers(examKey, questionKey);
+                $('#get-question').val("Y");
+            } else {
+                $('#get-question').val("N");
+            }
+        } catch (e) {
             $('#get-question').val("N");
         }
-    } catch (e) {
-        $('#get-question').val("N");
+        prevQuestion = questionKey;
     }
 }
 
