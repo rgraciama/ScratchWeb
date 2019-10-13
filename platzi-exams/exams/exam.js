@@ -21,8 +21,8 @@ function setExam() {
     var examKey = $('.Course')[0].innerText;
     var questionKey = document.getElementById('question').innerText;
 
-    questionKey = questionKey.replace(/[.,$\]\[]/g,"_");
-    examKey = examKey.replace(/[.,$\]\[]/g,"_");
+    questionKey = parseValueToSaveInFirebase(questionKey);
+    examKey = parseValueToSaveInFirebase(examKey);
 
     try {
         if (dbExams[examKey][questionKey]) {
@@ -94,17 +94,21 @@ function writeAnswerData(examKey, questionKey, answer, value) {
     }
 }
 
+function parseValueToSaveInFirebase(str) {
+    return str.replace(/[\/.,$\]\[]/g, "_");
+}
+
 /*** Set Results Exams **/
 function setResults() {
     //check results and give the results
     var examKey = $('.ResultInfo-careerName')[0].innerText;
 
 
-    examKey = examKey.replace(/[.,$\]\[]/g, "_");
+    examKey = parseValueToSaveInFirebase(examKey);
 
     $(".QuestionItem-text").each(function (index, questionElement) {
         var question = questionElement.innerText.trim();
-        question = question.replace(/[.,$\]\[]/g,"_");
+        question = parseValueToSaveInFirebase(question);
         if ($('.QuestionItem-text').parent()[index].className.includes("Correct")) {
             modifyAnswers(examKey, question, true);
         } else {
