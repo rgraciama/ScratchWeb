@@ -96,7 +96,7 @@ function writeAnswerData(examKey, questionKey, answer, value) {
 }
 
 function parseValueToSaveInFirebase(str) {
-    return str.replace(/[\/.,$\]\[]/g, "_");
+    return str.replace(/[\(\)\/.,$\]\[]/g, "_");
 }
 
 /*** Set Results Exams **/
