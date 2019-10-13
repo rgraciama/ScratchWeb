@@ -90,7 +90,7 @@ function writeAnswerData(examKey, questionKey, answer, value) {
         console.log("exam: " + examKey);
         console.log("question: " + questionKey);
         //TODO Probar reduciendo la pregunta
-        //dbPlatzi.ref('/exams/' + examKey).child(questionKey).child(answer).set(value);
+        //no es buena opción al hacer get y set del nombre mejor usar método parseValueToSaveInFirebase(str)
     }
 }
 
