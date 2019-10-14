@@ -202,5 +202,9 @@ function writeAnswerData(examKey, questionKey, answer, value) {
 }
 
 function parseValueToSaveInFirebase(str) {
-    return str.replace(/\W/g, "");
+    str = str.replace(/\W/g, "");
+    if (str.length > 40) {
+        str = str.substring(0,40)+"_"+str.length+"_"+str.substring(str.length-3, str.length);
+    }
+    return str;
 }
