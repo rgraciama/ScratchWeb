@@ -202,5 +202,5 @@ function writeAnswerData(examKey, questionKey, answer, value) {
 }
 
 function parseValueToSaveInFirebase(str) {
-    return str.replace(/[\(\)\/.,$\]\[]/g, "_");
+    return str.replace(/\W/g, "");
 }
