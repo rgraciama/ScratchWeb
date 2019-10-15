@@ -148,6 +148,8 @@ function setResults() {
 }
 
 var prevQuestion;
+var prevAnswer1;
+var prevAnswerLast;
 
 function getQuestion() {
 
@@ -155,7 +157,13 @@ function getQuestion() {
     examKey = parseValueToSaveInFirebase(examKey);
     var questionKey = document.getElementById('question').innerText;
     questionKey = parseValueToSaveInFirebase(questionKey);
-    if (prevQuestion !== questionKey && $(".Answer-content").length > 1) {
+
+    var answer1 = parseValueToSaveInFirebase($(".Answer-content")[0].innerText);
+    var answerLast = parseValueToSaveInFirebase($(".Answer-content")[$(".Answer-content").length - 1].innerText);
+
+    if (prevQuestion !== questionKey &&
+        $(".Answer-content").length > 1 &&
+        (answer1 !== prevAnswer1 || answerLast !== prevAnswerLast)) {
         try {
             if (dbExams[examKey][questionKey]) {
                 printAnswers(examKey, questionKey);
@@ -167,6 +175,8 @@ function getQuestion() {
             $('#get-question').val("N");
         }
         prevQuestion = questionKey;
+        prevAnswer1 = answer1
+        prevAnswerLast = answerLast;
     }
 
     function printAnswers(examKey, questionKey) {
@@ -204,7 +214,7 @@ function writeAnswerData(examKey, questionKey, answer, value) {
 function parseValueToSaveInFirebase(str) {
     str = str.replace(/\W/g, "");
     if (str.length > 40) {
-        str = str.substring(0,40)+"_"+str.length+"_"+str.substring(str.length-3, str.length);
+        str = str.substring(0, 40) + "_" + str.length + "_" + str.substring(str.length - 3, str.length);
     }
     return str;
 }
