@@ -185,6 +185,7 @@ function getQuestion() {
                 $('#get-question').val("N");
             }
         } catch (e) {
+            console.log(e);
             $('#get-question').val("N");
         }
         prevQuestion = questionKey;
