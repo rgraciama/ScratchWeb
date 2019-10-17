@@ -161,9 +161,13 @@ function getQuestion() {
     var answer1 = parseValueToSaveInFirebase($(".Answer-content")[0].innerText);
     var answerLast = parseValueToSaveInFirebase($(".Answer-content")[$(".Answer-content").length - 1].innerText);
 
-    if (prevQuestion !== questionKey &&
-        $(".Answer-content").length > 1 &&
-        (answer1 !== prevAnswer1 || answerLast !== prevAnswerLast)) {
+    function isGetQuestion() {
+        return prevQuestion !== questionKey &&
+            $(".Answer-content").length > 1 &&
+            (answer1 !== prevAnswer1 || answerLast !== prevAnswerLast);
+    }
+
+    if (isGetQuestion()) {
         try {
             if (dbExams[examKey][questionKey]) {
                 printAnswers(examKey, questionKey);
