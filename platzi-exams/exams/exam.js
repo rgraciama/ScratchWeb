@@ -170,10 +170,10 @@ function getQuestion() {
     }
 
     function isGetQuestion() {
-        return prevQuestion !== questionKey &&
+        return (prevQuestion !== questionKey &&
             $(".Answer-content").length > 1 &&
             (answer1 !== prevAnswer1 || answerLast !== prevAnswerLast) &&
-            ($('#get-question').val() === "Y" && !hasCssAnswers());
+            ($('#get-question').val() === "Y" && !hasCssAnswers()));
     }
 
     if (isGetQuestion()) {
