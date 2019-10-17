@@ -161,10 +161,19 @@ function getQuestion() {
     var answer1 = parseValueToSaveInFirebase($(".Answer-content")[0].innerText);
     var answerLast = parseValueToSaveInFirebase($(".Answer-content")[$(".Answer-content").length - 1].innerText);
 
+    function hasCssAnswers() {
+        var numTotal = 0;
+        $(".Answer-content").each(function (index, answerElement) {
+            numTotal += $(".Answer-content")[index].style.length;
+        }
+        return (numTotal>0)?true:false;
+    }
+
     function isGetQuestion() {
         return prevQuestion !== questionKey &&
             $(".Answer-content").length > 1 &&
-            (answer1 !== prevAnswer1 || answerLast !== prevAnswerLast);
+            (answer1 !== prevAnswer1 || answerLast !== prevAnswerLast) &&
+            ($('#get-question').val() === "Y" && !hasCssAnswers());
     }
 
     if (isGetQuestion()) {
