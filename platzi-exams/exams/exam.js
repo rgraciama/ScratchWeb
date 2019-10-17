@@ -173,7 +173,7 @@ function getQuestion() {
         return prevQuestion !== questionKey &&
             $(".Answer-content").length > 1 &&
             (answer1 !== prevAnswer1 || answerLast !== prevAnswerLast) &&
-            !hasCssAnswers();
+            (!hasCssAnswers() && $('#get-question').val() === "");
     }
 
     if (isGetQuestion()) {
