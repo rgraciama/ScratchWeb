@@ -165,7 +165,7 @@ function getQuestion() {
         var numTotal = 0;
         $(".Answer-content").each(function (index, answerElement) {
             numTotal += answerElement.style.length;
-        }
+        });
         return (numTotal>0)?true:false;
     }
 
