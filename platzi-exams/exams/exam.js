@@ -164,7 +164,7 @@ function getQuestion() {
     function hasCssAnswers() {
         var numTotal = 0;
         $(".Answer-content").each(function (index, answerElement) {
-            numTotal += $(".Answer-content")[index].style.length;
+            numTotal += answerElement.style.length;
         }
         return (numTotal>0)?true:false;
     }
