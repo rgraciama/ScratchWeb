@@ -202,8 +202,10 @@ function getQuestion() {
             try {
                 if (dbExams[examKey][questionKey][answer] === "F") {
                     $(this).css("background-color", "#fcafa4") //red
+                    $(this).parent("color", "red");
                 } else if (dbExams[examKey][questionKey][answer] === "T") {
                     $(this).css("background-color", "#00ff8c"); //green
+                    $(this).parent("color", "green");
                 }
             } catch (e) {
                 Console.log("No se encuentra: " + examKey + ", " + questionKey + ", " + answer);
